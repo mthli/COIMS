@@ -73,34 +73,6 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
               *notebook_window_person_text_result, *notebook_window_person_text_days;
     GtkWidget *notebook_window_person_scrolled_describe, *notebook_window_person_scrolled_result;
     /* --------------------------------------------------------------------------------------------------------------- */
-    /* GtkWidget *notebook_window_treat_v_box,
-              *notebook_window_treat_table,
-              *notebook_window_treat_fixed_1, *notebook_window_treat_fixed_2, *notebook_window_treat_fixed_3,
-              *notebook_window_treat_fixed_4, *notebook_window_treat_fixed_5, *notebook_window_treat_fixed_6, 
-              *notebook_window_treat_fixed_7, *notebook_window_treat_fixed_8, *notebook_window_treat_fixed_9,
-              *notebook_window_treat_fixed_10, *notebook_window_treat_fixed_11, *notebook_window_treat_fixed_12,
-              *notebook_window_treat_fixed_13, *notebook_window_treat_fixed_14, *notebook_window_treat_fixed_15,
-              *notebook_window_treat_fixed_16, *notebook_window_treat_fixed_17, *notebook_window_treat_fixed_18,
-              *notebook_window_treat_fixed_19, *notebook_window_treat_fixed_20, *notebook_window_treat_fixed_21,
-              *notebook_window_treat_fixed_22, *notebook_window_treat_fixed_23, *notebook_window_treat_fixed_24,
-              *notebook_window_treat_h_box_1, *notebook_window_treat_h_box_2, *notebook_window_treat_h_box_3,
-              *notebook_window_treat_h_box_4, *notebook_window_treat_h_box_5, *notebook_window_treat_h_box_6,
-              *notebook_window_treat_h_box_7, *notebook_window_treat_h_box_8, *notebook_window_treat_h_box_9,
-              *notebook_window_treat_h_box_10, *notebook_window_treat_h_box_11, *notebook_window_treat_h_box_12;
-    GtkWidget *notebook_window_treat_h_separator_1, *notebook_window_treat_h_separator_2,
-              *notebook_window_treat_h_separator_3, *notebook_window_treat_h_separator_4;
-    GtkWidget *notebook_window_treat_label_history, *notebook_window_treat_label_history_physiology,
-              *notebook_window_treat_label_history_mentality, *notebook_window_treat_label_history_hospitalization,
-              *notebook_window_treat_label_history_drinking, *notebook_window_treat_label_history_drug,
-              *notebook_window_treat_label_history_infection,
-              *notebook_window_treat_label_mouth, *notebook_window_treat_label_mouth_violence,
-              *notebook_window_treat_label_mouth_self_mutilation, *notebook_window_treat_label_mouth_self_wounding,
-              *notebook_window_treat_label_mouth_suicide,
-              *notebook_window_treat_label_mouth_frequency_1, *notebook_window_treat_label_mouth_frequency_2,
-              *notebook_window_treat_label_mouth_frequency_3, *notebook_window_treat_label_mouth_frequency_4,
-              *notebook_window_treat_label_mouth_frequency_5;
-    GtkWidget *notebook_window_treat_combo_box_diagnose_1, *notebook_window_treat_combo_box_diagnose_2;
-    GtkWidget *notebook_window_treat_combo_box_medicine_1, *notebook_window_treat_combo_box_medicine_2;
     /* ------------------------------------- notebook_window_treat部分声明 --------------------------------------------- */
     /* ---------------------------------------------------------------------------------------------------------------- */
     /* ------------------------------------- notebook_window_grade部分声明 ---------------------------------------------- */
