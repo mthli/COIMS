@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     GtkWidget *notebook_window_person, *notebook_window_treat, *notebook_window_grade;
     /* ------------------------------------- notebook_window_person部分声明 ---------------------------------------- */
     GtkWidget *notebook_window_person_v_box,
-              *notebook_window_person_table,
+              *notebook_window_person_table_1, *notebook_window_person_table_2,
               *notebook_window_person_fixed_1, *notebook_window_person_fixed_2, *notebook_window_person_fixed_3,
               *notebook_window_person_fixed_4, *notebook_window_person_fixed_5, *notebook_window_person_fixed_6,
               *notebook_window_person_fixed_7, *notebook_window_person_fixed_8, *notebook_window_person_fixed_9,
@@ -41,37 +41,39 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
               *notebook_window_person_fixed_37, *notebook_window_person_fixed_38, *notebook_window_person_fixed_39,
               *notebook_window_person_fixed_40, *notebook_window_person_fixed_41, *notebook_window_person_fixed_42,
               *notebook_window_person_fixed_43, *notebook_window_person_fixed_44, *notebook_window_person_fixed_45,
-              *notebook_window_person_fixed_46,
+              *notebook_window_person_fixed_46, *notebook_window_person_fixed_47,
               *notebook_window_person_h_box_1, *notebook_window_person_h_box_2, *notebook_window_person_h_box_3,
               *notebook_window_person_h_box_4, *notebook_window_person_h_box_5, *notebook_window_person_h_box_6,
               *notebook_window_person_h_box_7, *notebook_window_person_h_box_8, *notebook_window_person_h_box_9,
               *notebook_window_person_h_box_10, *notebook_window_person_h_box_11, *notebook_window_person_h_box_12,
-              *notebook_window_person_h_box_13;
+              *notebook_window_person_h_box_13, *notebook_window_person_h_box_14;
     GtkWidget *notebook_window_person_h_separator_1, *notebook_window_person_h_separator_2;
     GtkWidget *notebook_window_person_label_name, *notebook_window_person_label_sex,
               *notebook_window_person_label_age, *notebook_window_person_label_birthday,
               *notebook_window_person_label_credentials, *notebook_window_person_label_marriage,
               *notebook_window_person_label_education, *notebook_window_person_label_place,
               *notebook_window_person_label_into, *notebook_window_person_label_receipt,
-              *notebook_window_person_label_ad, *notebook_window_person_label_dangerous, 
+              *notebook_window_person_label_ad, *notebook_window_person_label_dangerous,
               *notebook_window_person_label_happen, *notebook_window_person_label_result,
               *notebook_window_person_label_level, *notebook_window_person_label_property,
               *notebook_window_person_label_describe, *notebook_window_person_label_diagnose,
-              *notebook_window_person_label_days, *notebook_window_person_label_out,
-              *notebook_window_person_label_goto, *notebook_window_person_label_void;
-    GtkWidget *notebook_window_person_button_photo, *notebook_window_person_button_birthday,
-              *notebook_window_person_button_into, *notebook_window_person_button_out,
-              *notebook_window_person_button_happen;
+              *notebook_window_person_label_diagnose_show, *notebook_window_person_label_days,
+              *notebook_window_person_label_out, *notebook_window_person_label_goto,
+              *notebook_window_person_label_void;
+    GtkWidget *notebook_window_person_button_photo, *notebook_window_person_button_diagnose;
     GtkWidget *notebook_window_person_combo_box_sex, *notebook_window_person_combo_box_credentials,
               *notebook_window_person_combo_box_education, *notebook_window_person_combo_box_marriage,
               *notebook_window_person_combo_box_place, *notebook_window_person_combo_box_property,
-              *notebook_window_person_combo_box_level, *notebook_window_person_combo_box_diagnose,
-              *notebook_window_person_combo_box_goto;
+              *notebook_window_person_combo_box_level, *notebook_window_person_combo_box_goto;
     GtkWidget *notebook_window_person_text_name, *notebook_window_person_text_age,
+              *notebook_window_person_text_birthday, *notebook_window_person_text_happen,
+              *notebook_window_person_text_into, *notebook_window_person_text_out,
               *notebook_window_person_text_credentials, *notebook_window_person_text_receipt,
-              *notebook_window_person_text_ad, *notebook_window_person_text_describe, 
-              *notebook_window_person_text_result, *notebook_window_person_text_days;
-    GtkWidget *notebook_window_person_scrolled_describe, *notebook_window_person_scrolled_result;
+              *notebook_window_person_text_ad, *notebook_window_person_text_describe,
+              *notebook_window_person_text_diagnose, *notebook_window_person_text_result, 
+              *notebook_window_person_text_days;
+    GtkWidget *notebook_window_person_scrolled_describe, *notebook_window_person_scrolled_result,
+              *notebook_window_person_scrolled_diagnose;
     /* --------------------------------------------------------------------------------------------------------------- */
     /* ------------------------------------- notebook_window_treat部分声明 --------------------------------------------- */
     /* ---------------------------------------------------------------------------------------------------------------- */
@@ -177,7 +179,8 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     /* ------------------------------------------- 创建notebook_window_person部分 --------------------------------------------------- */
     /* 创建滚动窗口notebook_window_person内部的框架 */
     notebook_window_person_v_box = gtk_vbox_new(FALSE, 0);
-    notebook_window_person_table = gtk_table_new(3, 5, FALSE);
+    notebook_window_person_table_1 = gtk_table_new(3, 5, FALSE);
+    notebook_window_person_table_2 = gtk_table_new(2, 3, FALSE);
     notebook_window_person_fixed_1 = gtk_fixed_new();
     notebook_window_person_fixed_2 = gtk_fixed_new();
     notebook_window_person_fixed_3 = gtk_fixed_new();
@@ -224,6 +227,7 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     notebook_window_person_fixed_44 = gtk_fixed_new();
     notebook_window_person_fixed_45 = gtk_fixed_new();
     notebook_window_person_fixed_46 = gtk_fixed_new();
+    notebook_window_person_fixed_47 = gtk_fixed_new();
     notebook_window_person_h_box_1 = gtk_hbox_new(FALSE, 0);
     notebook_window_person_h_box_2 = gtk_hbox_new(FALSE, 0);
     notebook_window_person_h_box_3 = gtk_hbox_new(FALSE, 0);
@@ -237,10 +241,12 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     notebook_window_person_h_box_11 = gtk_hbox_new(FALSE, 0);
     notebook_window_person_h_box_12 = gtk_hbox_new(FALSE, 0);
     notebook_window_person_h_box_13 = gtk_hbox_new(FALSE, 0);
+    notebook_window_person_h_box_14 = gtk_hbox_new(FALSE, 0);   /* 不一定有用 */
     notebook_window_person_h_separator_1 = gtk_hseparator_new();
     notebook_window_person_h_separator_2 = gtk_hseparator_new();
     notebook_window_person_scrolled_describe = gtk_scrolled_window_new(NULL, NULL);
     notebook_window_person_scrolled_result = gtk_scrolled_window_new(NULL, NULL);
+    notebook_window_person_scrolled_diagnose = gtk_scrolled_window_new(NULL, NULL);
     /* 创建滚动窗口notebook_window_person内部的控件 */
     notebook_window_person_label_name = gtk_label_new("姓名：");
     notebook_window_person_label_sex = gtk_label_new("性别：");
@@ -265,15 +271,17 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     notebook_window_person_label_goto = gtk_label_new("患者去向：");
     notebook_window_person_label_void = gtk_label_new(" ");
     notebook_window_person_button_photo = gtk_button_new();
-    notebook_window_person_button_birthday = gtk_button_new();
-    notebook_window_person_button_happen = gtk_button_new();
-    notebook_window_person_button_into = gtk_button_new();
-    notebook_window_person_button_out = gtk_button_new();
+    notebook_window_person_button_diagnose = gtk_button_new_with_label("点击选择");
     notebook_window_person_text_name = gtk_entry_new();
     notebook_window_person_text_age = gtk_entry_new();
+    notebook_window_person_text_birthday = gtk_entry_new();
+    notebook_window_person_text_happen = gtk_entry_new();
+    notebook_window_person_text_into = gtk_entry_new();
+    notebook_window_person_text_out = gtk_entry_new();
     notebook_window_person_text_credentials = gtk_entry_new();
     notebook_window_person_text_describe = gtk_text_view_new();
     notebook_window_person_text_result = gtk_text_view_new();
+    notebook_window_person_text_diagnose = gtk_text_view_new();
     notebook_window_person_text_receipt = gtk_entry_new();
     notebook_window_person_text_ad = gtk_entry_new();
     notebook_window_person_text_days = gtk_entry_new();
@@ -284,7 +292,6 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     notebook_window_person_combo_box_place = gtk_combo_box_text_new();
     notebook_window_person_combo_box_property = gtk_combo_box_text_new();
     notebook_window_person_combo_box_level = gtk_combo_box_text_new();
-    notebook_window_person_combo_box_diagnose = gtk_combo_box_text_new();
     notebook_window_person_combo_box_goto = gtk_combo_box_text_new();
     /* 设置滚动窗口notebook_window_person内部控件的默认大小 */
     gtk_widget_set_size_request(notebook_window_person_button_photo, 100, 150); /* 注意调整一下尺寸 */
@@ -295,7 +302,7 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     gtk_widget_set_size_request(notebook_window_person_label_age, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_text_age, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_birthday, 100, 25);
-    gtk_widget_set_size_request(notebook_window_person_button_birthday, 100, 25);
+    gtk_widget_set_size_request(notebook_window_person_text_birthday, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_credentials, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_combo_box_credentials, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_text_credentials, 375, 25);
@@ -305,7 +312,7 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     gtk_widget_set_size_request(notebook_window_person_combo_box_education, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_dangerous, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_happen, 100, 25);
-    gtk_widget_set_size_request(notebook_window_person_button_happen, 100, 25); 
+    gtk_widget_set_size_request(notebook_window_person_text_happen, 100, 25); 
     gtk_widget_set_size_request(notebook_window_person_label_place, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_combo_box_place, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_describe, 100, 25);
@@ -317,15 +324,16 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     gtk_widget_set_size_request(notebook_window_person_label_level, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_combo_box_level, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_diagnose, 100, 25);
-    gtk_widget_set_size_request(notebook_window_person_combo_box_diagnose, 100, 25);
+    gtk_widget_set_size_request(notebook_window_person_button_diagnose, 100, 25);
+    gtk_widget_set_size_request(notebook_window_person_scrolled_diagnose, 375, 100);
     gtk_widget_set_size_request(notebook_window_person_label_into, 100, 25);
-    gtk_widget_set_size_request(notebook_window_person_button_into, 100, 25);
+    gtk_widget_set_size_request(notebook_window_person_text_into, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_receipt, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_text_receipt, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_ad, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_text_ad, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_out, 100, 25);
-    gtk_widget_set_size_request(notebook_window_person_button_out, 100, 25);
+    gtk_widget_set_size_request(notebook_window_person_text_out, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_days, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_text_days, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_goto, 100, 25);
@@ -336,8 +344,10 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     /* 关于notebook_window_person_scrolled*控件的一些设置 */
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_person_scrolled_describe), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_person_scrolled_result), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_person_scrolled_diagnose), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
     gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_person_scrolled_describe), notebook_window_person_text_describe);
     gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_person_scrolled_result), notebook_window_person_text_result);
+    gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_person_scrolled_diagnose), notebook_window_person_text_diagnose);
     /* 将控件放入GtkFixed框架 */ /* 注意GtkFixed框架后面的参数是用来定义坐标的，所以用这个来实现对齐 */
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_1), GTK_WIDGET(notebook_window_person_button_photo), 100, 50);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_2), GTK_WIDGET(notebook_window_person_label_name), 25, 50);
@@ -347,7 +357,7 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_6), GTK_WIDGET(notebook_window_person_label_age), 25, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_7), GTK_WIDGET(notebook_window_person_text_age), 0, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_8), GTK_WIDGET(notebook_window_person_label_birthday), 100, 25);
-    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_9), GTK_WIDGET(notebook_window_person_button_birthday), 0, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_9), GTK_WIDGET(notebook_window_person_text_birthday), 0, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_10), GTK_WIDGET(notebook_window_person_label_marriage), 25, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_11), GTK_WIDGET(notebook_window_person_combo_box_marriage), 0, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_12), GTK_WIDGET(notebook_window_person_label_education), 100, 25);
@@ -358,7 +368,7 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_17), GTK_WIDGET(notebook_window_person_h_separator_1), 100, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_18), GTK_WIDGET(notebook_window_person_label_dangerous), 100, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_19), GTK_WIDGET(notebook_window_person_label_happen), 100, 25);
-    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_20), GTK_WIDGET(notebook_window_person_button_happen), 25, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_20), GTK_WIDGET(notebook_window_person_text_happen), 25, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_21), GTK_WIDGET(notebook_window_person_label_place), 200, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_22), GTK_WIDGET(notebook_window_person_combo_box_place), 0, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_23), GTK_WIDGET(notebook_window_person_label_describe), 100, 25);
@@ -369,36 +379,40 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_28), GTK_WIDGET(notebook_window_person_combo_box_property), 25, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_29), GTK_WIDGET(notebook_window_person_label_level), 200, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_30), GTK_WIDGET(notebook_window_person_combo_box_level), 0, 25);
-    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_31), GTK_WIDGET(notebook_window_person_label_diagnose), 100, 25);
-    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_32), GTK_WIDGET(notebook_window_person_combo_box_diagnose), 25, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_31), GTK_WIDGET(notebook_window_person_label_diagnose), 100, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_32), GTK_WIDGET(notebook_window_person_button_diagnose), 25, 0);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_33), GTK_WIDGET(notebook_window_person_h_separator_2), 100, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_34), GTK_WIDGET(notebook_window_person_label_receipt), 100, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_35), GTK_WIDGET(notebook_window_person_text_receipt), 25, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_36), GTK_WIDGET(notebook_window_person_label_ad), 200, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_37), GTK_WIDGET(notebook_window_person_text_ad), 0, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_38), GTK_WIDGET(notebook_window_person_label_into), 100, 25);
-    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_39), GTK_WIDGET(notebook_window_person_button_into), 25, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_39), GTK_WIDGET(notebook_window_person_text_into), 25, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_40), GTK_WIDGET(notebook_window_person_label_out), 200, 25);
-    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_41), GTK_WIDGET(notebook_window_person_button_out), 0, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_41), GTK_WIDGET(notebook_window_person_text_out), 0, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_42), GTK_WIDGET(notebook_window_person_label_days), 100, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_43), GTK_WIDGET(notebook_window_person_text_days), 25, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_44), GTK_WIDGET(notebook_window_person_label_goto), 200, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_45), GTK_WIDGET(notebook_window_person_combo_box_goto), 0, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_46), GTK_WIDGET(notebook_window_person_label_void), 100, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_47), GTK_WIDGET(notebook_window_person_scrolled_diagnose), 25, 25);
     /* 开始将各个GtkFixed框架加入到GtkBox和GtkTable框架之中 */
-    gtk_table_attach(GTK_TABLE(notebook_window_person_table), notebook_window_person_fixed_1, 0, 1, 0, 3, GTK_FILL, GTK_SHRINK, 0, 0);
-    gtk_table_attach(GTK_TABLE(notebook_window_person_table), notebook_window_person_fixed_2, 1, 2, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
-    gtk_table_attach(GTK_TABLE(notebook_window_person_table), notebook_window_person_fixed_3 , 2, 3, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
-    gtk_table_attach(GTK_TABLE(notebook_window_person_table), notebook_window_person_fixed_4, 3, 4, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
-    gtk_table_attach(GTK_TABLE(notebook_window_person_table), notebook_window_person_fixed_5, 4, 5, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
-    gtk_table_attach(GTK_TABLE(notebook_window_person_table), notebook_window_person_fixed_6, 1, 2, 1, 2, GTK_FILL, GTK_SHRINK, 0, 0);
-    gtk_table_attach(GTK_TABLE(notebook_window_person_table), notebook_window_person_fixed_7, 2, 3, 1, 2, GTK_FILL, GTK_SHRINK, 0, 0);
-    gtk_table_attach(GTK_TABLE(notebook_window_person_table), notebook_window_person_fixed_8, 3, 4, 1, 2, GTK_FILL, GTK_SHRINK, 0, 0);
-    gtk_table_attach(GTK_TABLE(notebook_window_person_table), notebook_window_person_fixed_9, 4, 5, 1, 2, GTK_FILL, GTK_SHRINK, 0, 0);
-    gtk_table_attach(GTK_TABLE(notebook_window_person_table), notebook_window_person_fixed_10, 1, 2, 2, 3, GTK_FILL, GTK_SHRINK, 0, 0);
-    gtk_table_attach(GTK_TABLE(notebook_window_person_table), notebook_window_person_fixed_11, 2, 3, 2, 3, GTK_FILL, GTK_SHRINK, 0, 0);
-    gtk_table_attach(GTK_TABLE(notebook_window_person_table), notebook_window_person_fixed_12, 3, 4, 2, 3, GTK_FILL, GTK_SHRINK, 0, 0);
-    gtk_table_attach(GTK_TABLE(notebook_window_person_table), notebook_window_person_fixed_13, 4, 5, 2, 3, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_person_table_1), notebook_window_person_fixed_1, 0, 1, 0, 3, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_person_table_1), notebook_window_person_fixed_2, 1, 2, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_person_table_1), notebook_window_person_fixed_3 , 2, 3, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_person_table_1), notebook_window_person_fixed_4, 3, 4, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_person_table_1), notebook_window_person_fixed_5, 4, 5, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_person_table_1), notebook_window_person_fixed_6, 1, 2, 1, 2, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_person_table_1), notebook_window_person_fixed_7, 2, 3, 1, 2, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_person_table_1), notebook_window_person_fixed_8, 3, 4, 1, 2, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_person_table_1), notebook_window_person_fixed_9, 4, 5, 1, 2, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_person_table_1), notebook_window_person_fixed_10, 1, 2, 2, 3, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_person_table_1), notebook_window_person_fixed_11, 2, 3, 2, 3, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_person_table_1), notebook_window_person_fixed_12, 3, 4, 2, 3, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_person_table_1), notebook_window_person_fixed_13, 4, 5, 2, 3, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_person_table_2), notebook_window_person_fixed_31, 0, 1, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_person_table_2), notebook_window_person_fixed_32, 1, 2, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_person_table_2), notebook_window_person_fixed_47, 2, 3, 0, 2, GTK_FILL, GTK_SHRINK, 0, 0);
     gtk_box_pack_start(GTK_BOX(notebook_window_person_h_box_1), notebook_window_person_fixed_14, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(notebook_window_person_h_box_1), notebook_window_person_fixed_15, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(notebook_window_person_h_box_1), notebook_window_person_fixed_16, FALSE, FALSE, 0);
@@ -416,8 +430,6 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     gtk_box_pack_start(GTK_BOX(notebook_window_person_h_box_7), notebook_window_person_fixed_28, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(notebook_window_person_h_box_7), notebook_window_person_fixed_29, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(notebook_window_person_h_box_7), notebook_window_person_fixed_30, FALSE, FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(notebook_window_person_h_box_8), notebook_window_person_fixed_31, FALSE, FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(notebook_window_person_h_box_8), notebook_window_person_fixed_32, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(notebook_window_person_h_box_9), notebook_window_person_fixed_33, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(notebook_window_person_h_box_10), notebook_window_person_fixed_34, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(notebook_window_person_h_box_10), notebook_window_person_fixed_35, FALSE, FALSE, 0);
@@ -435,7 +447,7 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     /* 将控件、相关回调函数以及信号相关联 */
     /* */
     /* 将各个框架加入到notebook_window_person_v_box之中 */
-    gtk_box_pack_start(GTK_BOX(notebook_window_person_v_box), notebook_window_person_table, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_person_v_box), notebook_window_person_table_1, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(notebook_window_person_v_box), notebook_window_person_h_box_1, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(notebook_window_person_v_box), notebook_window_person_h_box_2, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(notebook_window_person_v_box), notebook_window_person_h_box_3, FALSE, FALSE, 0);
@@ -443,7 +455,7 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     gtk_box_pack_start(GTK_BOX(notebook_window_person_v_box), notebook_window_person_h_box_5, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(notebook_window_person_v_box), notebook_window_person_h_box_6, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(notebook_window_person_v_box), notebook_window_person_h_box_7, FALSE, FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(notebook_window_person_v_box), notebook_window_person_h_box_8, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_person_v_box), notebook_window_person_table_2, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(notebook_window_person_v_box), notebook_window_person_h_box_9, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(notebook_window_person_v_box), notebook_window_person_h_box_10, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(notebook_window_person_v_box), notebook_window_person_h_box_11, FALSE, FALSE, 0);
