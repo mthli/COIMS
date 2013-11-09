@@ -61,22 +61,81 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
               *notebook_window_person_label_out, *notebook_window_person_label_goto,
               *notebook_window_person_label_void;
     GtkWidget *notebook_window_person_button_photo, *notebook_window_person_button_diagnose;
-    GtkWidget *notebook_window_person_combo_box_sex, *notebook_window_person_combo_box_credentials,
-              *notebook_window_person_combo_box_education, *notebook_window_person_combo_box_marriage,
-              *notebook_window_person_combo_box_place, *notebook_window_person_combo_box_property,
-              *notebook_window_person_combo_box_level, *notebook_window_person_combo_box_goto;
+    GtkWidget *notebook_window_person_combo_sex, *notebook_window_person_combo_credentials,
+              *notebook_window_person_combo_education, *notebook_window_person_combo_marriage,
+              *notebook_window_person_combo_place, *notebook_window_person_combo_property,
+              *notebook_window_person_combo_level, *notebook_window_person_combo_goto;
     GtkWidget *notebook_window_person_text_name, *notebook_window_person_text_age,
               *notebook_window_person_text_birthday, *notebook_window_person_text_happen,
               *notebook_window_person_text_into, *notebook_window_person_text_out,
               *notebook_window_person_text_credentials, *notebook_window_person_text_receipt,
               *notebook_window_person_text_ad, *notebook_window_person_text_describe,
-              *notebook_window_person_text_diagnose, *notebook_window_person_text_result, 
+              *notebook_window_person_text_diagnose, *notebook_window_person_text_result,
               *notebook_window_person_text_days;
     GtkWidget *notebook_window_person_scrolled_describe, *notebook_window_person_scrolled_result,
               *notebook_window_person_scrolled_diagnose;
-    /* --------------------------------------------------------------------------------------------------------------- */
     /* ------------------------------------- notebook_window_treat部分声明 --------------------------------------------- */
-    /* ---------------------------------------------------------------------------------------------------------------- */
+    GtkWidget *notebook_window_treat_v_box,
+              *notebook_window_treat_table_1, *notebook_window_treat_table_2, *notebook_window_treat_table_3,
+              *notebook_window_treat_table_4, *notebook_window_treat_table_5, *notebook_window_treat_table_6,
+              *notebook_window_treat_table_7,
+              *notebook_window_treat_h_box_1, *notebook_window_treat_h_box_2, *notebook_window_treat_h_box_3,
+              *notebook_window_treat_h_box_4, *notebook_window_treat_h_box_5, *notebook_window_treat_h_box_6,
+              *notebook_window_treat_h_box_7, *notebook_window_treat_h_box_8, *notebook_window_treat_h_box_9,
+              *notebook_window_treat_h_box_10, *notebook_window_treat_h_box_11, *notebook_window_treat_h_box_12,
+              *notebook_window_treat_h_box_13, *notebook_window_treat_h_box_14, *notebook_window_treat_h_box_15,
+              *notebook_window_treat_h_box_16, *notebook_window_treat_h_box_17, *notebook_window_treat_h_box_18,
+              *notebook_window_treat_h_box_19, *notebook_window_treat_h_box_20, *notebook_window_treat_h_box_21,
+              *notebook_window_treat_h_box_22,
+              *notebook_window_treat_fixed_1, *notebook_window_treat_fixed_2, *notebook_window_treat_fixed_3,
+              *notebook_window_treat_fixed_4, *notebook_window_treat_fixed_5, *notebook_window_treat_fixed_6,
+              *notebook_window_treat_fixed_7, *notebook_window_treat_fixed_8, *notebook_window_treat_fixed_9,
+              *notebook_window_treat_fixed_10, *notebook_window_treat_fixed_11, *notebook_window_treat_fixed_12,
+              *notebook_window_treat_fixed_13, *notebook_window_treat_fixed_14, *notebook_window_treat_fixed_15,
+              *notebook_window_treat_fixed_16, *notebook_window_treat_fixed_17, *notebook_window_treat_fixed_18,
+              *notebook_window_treat_fixed_19, *notebook_window_treat_fixed_20, *notebook_window_treat_fixed_21,
+              *notebook_window_treat_fixed_22, *notebook_window_treat_fixed_23, *notebook_window_treat_fixed_24,
+              *notebook_window_treat_fixed_25, *notebook_window_treat_fixed_26, *notebook_window_treat_fixed_27,
+              *notebook_window_treat_fixed_28, *notebook_window_treat_fixed_29, *notebook_window_treat_fixed_30,
+              *notebook_window_treat_fixed_31, *notebook_window_treat_fixed_32, *notebook_window_treat_fixed_33,
+              *notebook_window_treat_fixed_34, *notebook_window_treat_fixed_35, *notebook_window_treat_fixed_36,
+              *notebook_window_treat_fixed_37, *notebook_window_treat_fixed_38, *notebook_window_treat_fixed_39,
+              *notebook_window_treat_fixed_40, *notebook_window_treat_fixed_41, *notebook_window_treat_fixed_42,
+              *notebook_window_treat_h_separator_1, *notebook_window_treat_h_separator_2, *notebook_window_treat_h_separator_3;
+    GtkWidget *notebook_window_treat_label_new,
+              *notebook_window_treat_label_new_physiology, *notebook_window_treat_label_new_violence,
+              *notebook_window_treat_label_new_autotomy, *notebook_window_treat_label_new_selfstl,
+              *notebook_window_treat_label_new_idioctonia,
+              *notebook_window_treat_label_history,
+              *notebook_window_treat_label_history_physiology, *notebook_window_treat_label_history_mentality,
+              *notebook_window_treat_label_history_hospital, *notebook_window_treat_label_history_violence,
+              *notebook_window_treat_label_history_autotomy, *notebook_window_treat_label_history_selfstl,
+              *notebook_window_treat_label_history_idioctonia, *notebook_window_treat_label_history_ds,
+              *notebook_window_treat_label_history_infect,
+              *notebook_window_treat_label_diagnose,
+              *notebook_window_treat_label_medicine,
+              *notebook_window_treat_label_void_1;
+    GtkWidget *notebook_window_treat_scrolled_new_physiology, *notebook_window_treat_scrolled_new_violence,
+              *notebook_window_treat_scrolled_new_autotomy, *notebook_window_treat_scrolled_new_selfstl,
+              *notebook_window_treat_scrolled_new_idioctonia,
+              *notebook_window_treat_scrolled_history_physiology, *notebook_window_treat_scrolled_history_mentality,
+              *notebook_window_treat_scrolled_history_hospital, *notebook_window_treat_scrolled_history_violence,
+              *notebook_window_treat_scrolled_history_autotomy, *notebook_window_treat_scrolled_history_selfstl,
+              *notebook_window_treat_scrolled_history_idioctonia, *notebook_window_treat_scrolled_history_ds,
+              *notebook_window_treat_scrolled_history_infect,
+              *notebook_window_treat_scrolled_diagnose, *notebook_window_treat_scrolled_medicine;
+    GtkWidget *notebook_window_treat_text_new_physiology, *notebook_window_treat_text_new_violence,
+              *notebook_window_treat_text_new_autotomy, *notebook_window_treat_text_new_selfstl,
+              *notebook_window_treat_text_new_idioctonia,
+              *notebook_window_treat_text_history_physiology, *notebook_window_treat_text_history_mentality,
+              *notebook_window_treat_text_history_hospital, *notebook_window_treat_text_history_violence,
+              *notebook_window_treat_text_history_autotomy,  *notebook_window_treat_text_history_selfstl,
+              *notebook_window_treat_text_history_idioctonia, *notebook_window_treat_text_history_ds,
+              *notebook_window_treat_text_history_infect,
+              *notebook_window_treat_text_diagnose, *notebook_window_treat_text_medicine;
+    GtkWidget *notebook_window_treat_combo_new_level_1, *notebook_window_treat_combo_new_level_2,
+              *notebook_window_treat_combo_new_level_3, *notebook_window_treat_combo_new_level_4;
+    GtkWidget *notebook_window_treat_button_diagnose, *notebook_window_treat_button_medicine;
     /* ------------------------------------- notebook_window_grade部分声明 ---------------------------------------------- */
     /* ---------------------------------------------------------------------------------------------------------------- */
     /* 编辑按钮及其所需框架声明 */
@@ -89,7 +148,7 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
 
     /* 每个GTK+程序必不可少的部分 */
     gtk_init(&argc, &argv);
-    
+
     /* 创建主窗口 */
     main_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     /* 设置主窗口名称 */
@@ -159,7 +218,7 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     g_signal_connect(G_OBJECT(menu_bar_file_quit), "activate", G_CALLBACK(gtk_main_quit), NULL);
     g_signal_connect(G_OBJECT(menu_bar_help_about), "activate", G_CALLBACK(menu_bar_help_callback), (gpointer)main_window);
     /* */
-    
+
     /* 创建notebook控件 */
     notebook = gtk_notebook_new();
     /* 设置标签页为底部显示 */
@@ -285,44 +344,44 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     notebook_window_person_text_receipt = gtk_entry_new();
     notebook_window_person_text_ad = gtk_entry_new();
     notebook_window_person_text_days = gtk_entry_new();
-    notebook_window_person_combo_box_sex = gtk_combo_box_text_new();
-    notebook_window_person_combo_box_credentials = gtk_combo_box_text_new();
-    notebook_window_person_combo_box_marriage = gtk_combo_box_text_new();
-    notebook_window_person_combo_box_education = gtk_combo_box_text_new();
-    notebook_window_person_combo_box_place = gtk_combo_box_text_new();
-    notebook_window_person_combo_box_property = gtk_combo_box_text_new();
-    notebook_window_person_combo_box_level = gtk_combo_box_text_new();
-    notebook_window_person_combo_box_goto = gtk_combo_box_text_new();
+    notebook_window_person_combo_sex = gtk_combo_box_text_new();
+    notebook_window_person_combo_credentials = gtk_combo_box_text_new();
+    notebook_window_person_combo_marriage = gtk_combo_box_text_new();
+    notebook_window_person_combo_education = gtk_combo_box_text_new();
+    notebook_window_person_combo_place = gtk_combo_box_text_new();
+    notebook_window_person_combo_property = gtk_combo_box_text_new();
+    notebook_window_person_combo_level = gtk_combo_box_text_new();
+    notebook_window_person_combo_goto = gtk_combo_box_text_new();
     /* 设置滚动窗口notebook_window_person内部控件的默认大小 */
     gtk_widget_set_size_request(notebook_window_person_button_photo, 100, 150); /* 注意调整一下尺寸 */
     gtk_widget_set_size_request(notebook_window_person_label_name, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_text_name, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_sex, 100, 25);
-    gtk_widget_set_size_request(notebook_window_person_combo_box_sex, 100, 25);
+    gtk_widget_set_size_request(notebook_window_person_combo_sex, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_age, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_text_age, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_birthday, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_text_birthday, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_credentials, 100, 25);
-    gtk_widget_set_size_request(notebook_window_person_combo_box_credentials, 100, 25);
+    gtk_widget_set_size_request(notebook_window_person_combo_credentials, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_text_credentials, 375, 25);
     gtk_widget_set_size_request(notebook_window_person_label_marriage, 100, 25);
-    gtk_widget_set_size_request(notebook_window_person_combo_box_marriage, 100, 25);
+    gtk_widget_set_size_request(notebook_window_person_combo_marriage, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_education, 100, 25);
-    gtk_widget_set_size_request(notebook_window_person_combo_box_education, 100, 25);
+    gtk_widget_set_size_request(notebook_window_person_combo_education, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_dangerous, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_happen, 100, 25);
-    gtk_widget_set_size_request(notebook_window_person_text_happen, 100, 25); 
+    gtk_widget_set_size_request(notebook_window_person_text_happen, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_place, 100, 25);
-    gtk_widget_set_size_request(notebook_window_person_combo_box_place, 100, 25);
+    gtk_widget_set_size_request(notebook_window_person_combo_place, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_describe, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_scrolled_describe, 500, 100);
     gtk_widget_set_size_request(notebook_window_person_label_property, 100, 25);
-    gtk_widget_set_size_request(notebook_window_person_combo_box_property, 100, 25);
+    gtk_widget_set_size_request(notebook_window_person_combo_property, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_result, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_scrolled_result, 500, 100);
     gtk_widget_set_size_request(notebook_window_person_label_level, 100, 25);
-    gtk_widget_set_size_request(notebook_window_person_combo_box_level, 100, 25);
+    gtk_widget_set_size_request(notebook_window_person_combo_level, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_diagnose, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_button_diagnose, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_scrolled_diagnose, 375, 100);
@@ -337,7 +396,7 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     gtk_widget_set_size_request(notebook_window_person_label_days, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_text_days, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_goto, 100, 25);
-    gtk_widget_set_size_request(notebook_window_person_combo_box_goto, 100, 25);
+    gtk_widget_set_size_request(notebook_window_person_combo_goto, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_label_void, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_h_separator_1, 625, 25);
     gtk_widget_set_size_request(notebook_window_person_h_separator_2, 625, 25);
@@ -353,32 +412,32 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_2), GTK_WIDGET(notebook_window_person_label_name), 25, 50);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_3), GTK_WIDGET(notebook_window_person_text_name), 0, 50);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_4), GTK_WIDGET(notebook_window_person_label_sex), 100, 50);
-    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_5), GTK_WIDGET(notebook_window_person_combo_box_sex), 0, 50);
+    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_5), GTK_WIDGET(notebook_window_person_combo_sex), 0, 50);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_6), GTK_WIDGET(notebook_window_person_label_age), 25, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_7), GTK_WIDGET(notebook_window_person_text_age), 0, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_8), GTK_WIDGET(notebook_window_person_label_birthday), 100, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_9), GTK_WIDGET(notebook_window_person_text_birthday), 0, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_10), GTK_WIDGET(notebook_window_person_label_marriage), 25, 25);
-    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_11), GTK_WIDGET(notebook_window_person_combo_box_marriage), 0, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_11), GTK_WIDGET(notebook_window_person_combo_marriage), 0, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_12), GTK_WIDGET(notebook_window_person_label_education), 100, 25);
-    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_13), GTK_WIDGET(notebook_window_person_combo_box_education), 0, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_13), GTK_WIDGET(notebook_window_person_combo_education), 0, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_14), GTK_WIDGET(notebook_window_person_label_credentials), 100, 25);
-    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_15), GTK_WIDGET(notebook_window_person_combo_box_credentials), 25, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_15), GTK_WIDGET(notebook_window_person_combo_credentials), 25, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_16), GTK_WIDGET(notebook_window_person_text_credentials), 25, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_17), GTK_WIDGET(notebook_window_person_h_separator_1), 100, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_18), GTK_WIDGET(notebook_window_person_label_dangerous), 100, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_19), GTK_WIDGET(notebook_window_person_label_happen), 100, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_20), GTK_WIDGET(notebook_window_person_text_happen), 25, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_21), GTK_WIDGET(notebook_window_person_label_place), 200, 25);
-    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_22), GTK_WIDGET(notebook_window_person_combo_box_place), 0, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_22), GTK_WIDGET(notebook_window_person_combo_place), 0, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_23), GTK_WIDGET(notebook_window_person_label_describe), 100, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_24), GTK_WIDGET(notebook_window_person_scrolled_describe), 25, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_25), GTK_WIDGET(notebook_window_person_label_result), 100, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_26), GTK_WIDGET(notebook_window_person_scrolled_result), 25, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_27), GTK_WIDGET(notebook_window_person_label_property), 100, 25);
-    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_28), GTK_WIDGET(notebook_window_person_combo_box_property), 25, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_28), GTK_WIDGET(notebook_window_person_combo_property), 25, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_29), GTK_WIDGET(notebook_window_person_label_level), 200, 25);
-    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_30), GTK_WIDGET(notebook_window_person_combo_box_level), 0, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_30), GTK_WIDGET(notebook_window_person_combo_level), 0, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_31), GTK_WIDGET(notebook_window_person_label_diagnose), 100, 0);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_32), GTK_WIDGET(notebook_window_person_button_diagnose), 25, 0);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_33), GTK_WIDGET(notebook_window_person_h_separator_2), 100, 25);
@@ -393,7 +452,7 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_42), GTK_WIDGET(notebook_window_person_label_days), 100, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_43), GTK_WIDGET(notebook_window_person_text_days), 25, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_44), GTK_WIDGET(notebook_window_person_label_goto), 200, 25);
-    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_45), GTK_WIDGET(notebook_window_person_combo_box_goto), 0, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_45), GTK_WIDGET(notebook_window_person_combo_goto), 0, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_46), GTK_WIDGET(notebook_window_person_label_void), 100, 25);
     gtk_fixed_put(GTK_FIXED(notebook_window_person_fixed_47), GTK_WIDGET(notebook_window_person_scrolled_diagnose), 25, 25);
     /* 开始将各个GtkFixed框架加入到GtkBox和GtkTable框架之中 */
@@ -465,11 +524,346 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_person), notebook_window_person_v_box);
     /* --------------------------------------------------------------------------------------------------------- */
 
+
+
+    /* ---------------------------------------------------------- notebook_window_treat部分 ------------------------------------------------------------- */
+    /* 创建滚动窗口notebook_window_treat内部的框架 */
+    notebook_window_treat_v_box = gtk_vbox_new(FALSE, 0);
+    notebook_window_treat_table_1 = gtk_table_new( 2, 3, FALSE);
+    notebook_window_treat_table_2 = gtk_table_new( 2, 3, FALSE);
+    notebook_window_treat_table_3 = gtk_table_new( 2, 2, FALSE);
+    notebook_window_treat_table_4 = gtk_table_new( 2, 3, FALSE);
+    notebook_window_treat_table_5 = gtk_table_new( 2, 3, FALSE);
+    notebook_window_treat_table_6 = gtk_table_new( 2, 3, FALSE);
+    notebook_window_treat_table_7 = gtk_table_new( 2, 3, FALSE);
+    notebook_window_treat_h_box_1 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_2 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_3 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_4 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_5 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_6 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_7 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_8 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_9 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_10 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_11 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_12 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_13 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_14 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_15 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_16 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_17 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_18 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_19 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_20 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_21 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_h_box_22 = gtk_hbox_new(FALSE, 0);
+    notebook_window_treat_fixed_1 = gtk_fixed_new();
+    notebook_window_treat_fixed_2 = gtk_fixed_new();
+    notebook_window_treat_fixed_3 = gtk_fixed_new();
+    notebook_window_treat_fixed_4 = gtk_fixed_new();
+    notebook_window_treat_fixed_5 = gtk_fixed_new();
+    notebook_window_treat_fixed_6 = gtk_fixed_new();
+    notebook_window_treat_fixed_7 = gtk_fixed_new();
+    notebook_window_treat_fixed_8 = gtk_fixed_new();
+    notebook_window_treat_fixed_9 = gtk_fixed_new();
+    notebook_window_treat_fixed_10 = gtk_fixed_new();
+    notebook_window_treat_fixed_11 = gtk_fixed_new();
+    notebook_window_treat_fixed_12 = gtk_fixed_new();
+    notebook_window_treat_fixed_13 = gtk_fixed_new();
+    notebook_window_treat_fixed_14 = gtk_fixed_new();
+    notebook_window_treat_fixed_15 = gtk_fixed_new();
+    notebook_window_treat_fixed_16 = gtk_fixed_new();
+    notebook_window_treat_fixed_17 = gtk_fixed_new();
+    notebook_window_treat_fixed_18 = gtk_fixed_new();
+    notebook_window_treat_fixed_19 = gtk_fixed_new();
+    notebook_window_treat_fixed_20 = gtk_fixed_new();
+    notebook_window_treat_fixed_21 = gtk_fixed_new();
+    notebook_window_treat_fixed_22 = gtk_fixed_new();
+    notebook_window_treat_fixed_23 = gtk_fixed_new();
+    notebook_window_treat_fixed_24 = gtk_fixed_new();
+    notebook_window_treat_fixed_25 = gtk_fixed_new();
+    notebook_window_treat_fixed_26 = gtk_fixed_new();
+    notebook_window_treat_fixed_27 = gtk_fixed_new();
+    notebook_window_treat_fixed_28 = gtk_fixed_new();
+    notebook_window_treat_fixed_29 = gtk_fixed_new();
+    notebook_window_treat_fixed_30 = gtk_fixed_new();
+    notebook_window_treat_fixed_31 = gtk_fixed_new();
+    notebook_window_treat_fixed_32 = gtk_fixed_new();
+    notebook_window_treat_fixed_33 = gtk_fixed_new();
+    notebook_window_treat_fixed_34 = gtk_fixed_new();
+    notebook_window_treat_fixed_35 = gtk_fixed_new();
+    notebook_window_treat_fixed_36 = gtk_fixed_new();
+    notebook_window_treat_fixed_37 = gtk_fixed_new();
+    notebook_window_treat_fixed_38 = gtk_fixed_new();
+    notebook_window_treat_fixed_39 = gtk_fixed_new();
+    notebook_window_treat_fixed_40 = gtk_fixed_new();
+    notebook_window_treat_fixed_41 = gtk_fixed_new();
+    notebook_window_treat_fixed_42 = gtk_fixed_new();
+    notebook_window_treat_scrolled_new_physiology = gtk_scrolled_window_new(NULL, NULL);
+    notebook_window_treat_scrolled_new_violence = gtk_scrolled_window_new(NULL, NULL);
+    notebook_window_treat_scrolled_new_autotomy = gtk_scrolled_window_new(NULL, NULL);
+    notebook_window_treat_scrolled_new_selfstl = gtk_scrolled_window_new(NULL, NULL);
+    notebook_window_treat_scrolled_new_idioctonia = gtk_scrolled_window_new(NULL, NULL);
+    notebook_window_treat_scrolled_history_physiology = gtk_scrolled_window_new(NULL, NULL);
+    notebook_window_treat_scrolled_history_mentality = gtk_scrolled_window_new(NULL, NULL);
+    notebook_window_treat_scrolled_history_hospital = gtk_scrolled_window_new(NULL, NULL);
+    notebook_window_treat_scrolled_history_violence = gtk_scrolled_window_new(NULL, NULL);
+    notebook_window_treat_scrolled_history_autotomy = gtk_scrolled_window_new(NULL, NULL);
+    notebook_window_treat_scrolled_history_selfstl = gtk_scrolled_window_new(NULL, NULL);
+    notebook_window_treat_scrolled_history_idioctonia = gtk_scrolled_window_new(NULL, NULL);
+    notebook_window_treat_scrolled_history_ds = gtk_scrolled_window_new(NULL, NULL);
+    notebook_window_treat_scrolled_history_infect = gtk_scrolled_window_new(NULL, NULL);
+    notebook_window_treat_scrolled_diagnose = gtk_scrolled_window_new(NULL, NULL);
+    notebook_window_treat_scrolled_medicine = gtk_scrolled_window_new(NULL, NULL);
+    notebook_window_treat_h_separator_1 = gtk_hseparator_new();
+    notebook_window_treat_h_separator_2 = gtk_hseparator_new();
+    /* 创建滚动窗口notebook_window_treat内部的控件 */
+    notebook_window_treat_label_diagnose = gtk_label_new("疾病诊断：");
+    notebook_window_treat_label_medicine = gtk_label_new("药物治疗：");
+    notebook_window_treat_label_new = gtk_label_new("最新记录：");
+    notebook_window_treat_label_new_physiology = gtk_label_new("躯体疾病：");
+    notebook_window_treat_label_new_violence = gtk_label_new("暴力行为：");
+    notebook_window_treat_label_new_autotomy = gtk_label_new("自残行为：");
+    notebook_window_treat_label_new_selfstl = gtk_label_new("自伤行为：");
+    notebook_window_treat_label_new_idioctonia = gtk_label_new("自杀行为：");
+    notebook_window_treat_label_history_physiology = gtk_label_new("既往躯体疾病史：");
+    notebook_window_treat_label_history_mentality = gtk_label_new("既往精神障碍相关疾病史：");
+    notebook_window_treat_label_history_hospital = gtk_label_new("既往住院治疗史：");
+    notebook_window_treat_label_history_violence = gtk_label_new("既往（一月内）暴力行为记录：");
+    notebook_window_treat_label_history_autotomy = gtk_label_new("既往（一月内）自残行为记录：");
+    notebook_window_treat_label_history_selfstl = gtk_label_new("既往（一月内）自伤行为记录：");
+    notebook_window_treat_label_history_idioctonia = gtk_label_new("既往（一月内）自杀行为记录：");
+    notebook_window_treat_label_history_ds = gtk_label_new("既往吸烟及饮酒史：");
+    notebook_window_treat_label_history_infect = gtk_label_new("既往传染病史：");
+    notebook_window_treat_label_void_1 = gtk_label_new(" ");
+    notebook_window_treat_text_diagnose = gtk_text_view_new();
+    notebook_window_treat_text_medicine = gtk_text_view_new();
+    notebook_window_treat_text_new_physiology = gtk_text_view_new();
+    notebook_window_treat_text_new_violence = gtk_text_view_new();
+    notebook_window_treat_text_new_autotomy = gtk_text_view_new();
+    notebook_window_treat_text_new_selfstl = gtk_text_view_new();
+    notebook_window_treat_text_new_idioctonia = gtk_text_view_new();
+    notebook_window_treat_text_history_physiology = gtk_text_view_new();
+    notebook_window_treat_text_history_mentality = gtk_text_view_new();
+    notebook_window_treat_text_history_hospital = gtk_text_view_new();
+    notebook_window_treat_text_history_violence = gtk_text_view_new();
+    notebook_window_treat_text_history_autotomy = gtk_text_view_new();
+    notebook_window_treat_text_history_selfstl = gtk_text_view_new();
+    notebook_window_treat_text_history_idioctonia = gtk_text_view_new();
+    notebook_window_treat_text_history_ds = gtk_text_view_new();
+    notebook_window_treat_text_history_infect = gtk_text_view_new();
+    notebook_window_treat_button_diagnose = gtk_button_new_with_label("点击选择");
+    notebook_window_treat_button_medicine = gtk_button_new_with_label("点击选择");
+    notebook_window_treat_combo_new_level_1 = gtk_combo_box_text_new();
+    notebook_window_treat_combo_new_level_2 = gtk_combo_box_text_new();
+    notebook_window_treat_combo_new_level_3 = gtk_combo_box_text_new();
+    notebook_window_treat_combo_new_level_4 = gtk_combo_box_text_new();
+    /* 设置滚动窗口notebook_window_treat内部控件的默认大小 */
+    gtk_widget_set_size_request(notebook_window_treat_label_diagnose, 100, 25);
+    gtk_widget_set_size_request(notebook_window_treat_button_diagnose, 100, 25);
+    gtk_widget_set_size_request(notebook_window_treat_scrolled_diagnose, 375, 100);
+    gtk_widget_set_size_request(notebook_window_treat_label_medicine, 100, 25);
+    gtk_widget_set_size_request(notebook_window_treat_button_medicine, 100, 25);
+    gtk_widget_set_size_request(notebook_window_treat_scrolled_medicine, 375, 100);
+    gtk_widget_set_size_request(notebook_window_treat_h_separator_1, 625, 25);
+    gtk_widget_set_size_request(notebook_window_treat_label_new, 100, 25);
+    gtk_widget_set_size_request(notebook_window_treat_label_new_physiology, 100, 25);
+    gtk_widget_set_size_request(notebook_window_treat_scrolled_new_physiology, 500, 100);
+    gtk_widget_set_size_request(notebook_window_treat_label_new_violence, 100, 25);
+    gtk_widget_set_size_request(notebook_window_treat_combo_new_level_1, 100, 25);
+    gtk_widget_set_size_request(notebook_window_treat_scrolled_new_violence, 375, 100);
+    gtk_widget_set_size_request(notebook_window_treat_label_new_autotomy, 100, 25);
+    gtk_widget_set_size_request(notebook_window_treat_combo_new_level_2, 100, 25);
+    gtk_widget_set_size_request(notebook_window_treat_scrolled_new_autotomy, 375, 100);
+    gtk_widget_set_size_request(notebook_window_treat_label_new_selfstl, 100, 25);
+    gtk_widget_set_size_request(notebook_window_treat_combo_new_level_3, 100, 25);
+    gtk_widget_set_size_request(notebook_window_treat_scrolled_new_selfstl, 375, 100);
+    gtk_widget_set_size_request(notebook_window_treat_label_new_idioctonia, 100, 25);
+    gtk_widget_set_size_request(notebook_window_treat_combo_new_level_4, 100, 25);
+    gtk_widget_set_size_request(notebook_window_treat_scrolled_new_idioctonia, 375, 100);
+    gtk_widget_set_size_request(notebook_window_treat_h_separator_2, 625, 25);
+    gtk_widget_set_size_request(notebook_window_treat_label_history_physiology, 95, 25);
+    gtk_widget_set_size_request(notebook_window_treat_scrolled_history_physiology, 625, 100);
+    gtk_widget_set_size_request(notebook_window_treat_label_history_mentality, 140, 25);
+    gtk_widget_set_size_request(notebook_window_treat_scrolled_history_mentality, 625, 100);
+    gtk_widget_set_size_request(notebook_window_treat_label_history_hospital, 95, 25);
+    gtk_widget_set_size_request(notebook_window_treat_scrolled_history_hospital, 625, 100);
+    gtk_widget_set_size_request(notebook_window_treat_label_history_violence, 165, 25);
+    gtk_widget_set_size_request(notebook_window_treat_scrolled_history_violence, 625, 100);
+    gtk_widget_set_size_request(notebook_window_treat_label_history_autotomy, 165, 25);
+    gtk_widget_set_size_request(notebook_window_treat_scrolled_history_autotomy, 625, 100);
+    gtk_widget_set_size_request(notebook_window_treat_label_history_selfstl, 165, 25);
+    gtk_widget_set_size_request(notebook_window_treat_scrolled_history_selfstl, 625, 100);
+    gtk_widget_set_size_request(notebook_window_treat_label_history_idioctonia, 165, 25);
+    gtk_widget_set_size_request(notebook_window_treat_scrolled_history_idioctonia, 625, 100);
+    gtk_widget_set_size_request(notebook_window_treat_label_history_ds, 100, 25);
+    gtk_widget_set_size_request(notebook_window_treat_scrolled_history_ds, 625, 100);
+    gtk_widget_set_size_request(notebook_window_treat_label_history_infect, 85, 25);
+    gtk_widget_set_size_request(notebook_window_treat_scrolled_history_infect, 625, 100);
+    gtk_widget_set_size_request(notebook_window_treat_label_void_1, 100, 25);
+    /* 关于notebook_window_treat_scrolled*控件的一些设置 */
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_diagnose), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_medicine), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_new_physiology), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_new_violence), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_new_autotomy), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_new_selfstl), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_new_idioctonia), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_history_physiology), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_history_mentality), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_history_hospital), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_history_violence), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_history_autotomy), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_history_selfstl), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_history_idioctonia), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_history_ds), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_history_infect), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_diagnose), notebook_window_treat_text_diagnose);
+    gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_medicine), notebook_window_treat_text_medicine);
+    gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_new_physiology), notebook_window_treat_text_new_physiology);
+    gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_new_violence), notebook_window_treat_text_new_violence);
+    gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_new_autotomy), notebook_window_treat_text_new_autotomy);
+    gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_new_selfstl), notebook_window_treat_text_new_selfstl);
+    gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_new_idioctonia), notebook_window_treat_text_new_idioctonia);
+    gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_history_physiology), notebook_window_treat_text_history_physiology);
+    gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_history_mentality), notebook_window_treat_text_history_mentality);
+    gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_history_hospital), notebook_window_treat_text_history_hospital);
+    gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_history_violence), notebook_window_treat_text_history_violence);
+    gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_history_autotomy), notebook_window_treat_text_history_autotomy);
+    gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_history_selfstl), notebook_window_treat_text_history_selfstl);
+    gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_history_idioctonia), notebook_window_treat_text_history_idioctonia);
+    gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_history_ds), notebook_window_treat_text_history_ds);
+    gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_history_infect), notebook_window_treat_text_history_infect);
+    /* 将控件放入GtkFixed框架 */ /* 注意GtkFixed框架后面的参数是用来定义坐标的，所以用这个来实现对齐 */
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_1), GTK_WIDGET(notebook_window_treat_label_diagnose), 100, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_2), GTK_WIDGET(notebook_window_treat_button_diagnose), 25, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_3), GTK_WIDGET(notebook_window_treat_scrolled_diagnose), 25, 50);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_4), GTK_WIDGET(notebook_window_treat_label_medicine), 100, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_5), GTK_WIDGET(notebook_window_treat_button_medicine), 25, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_6), GTK_WIDGET(notebook_window_treat_scrolled_medicine), 25, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_7), GTK_WIDGET(notebook_window_treat_h_separator_1), 100, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_8), GTK_WIDGET(notebook_window_treat_label_new), 100, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_9), GTK_WIDGET(notebook_window_treat_label_new_physiology), 100, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_10), GTK_WIDGET(notebook_window_treat_scrolled_new_physiology), 25, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_11), GTK_WIDGET(notebook_window_treat_label_new_violence), 100, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_12), GTK_WIDGET(notebook_window_treat_combo_new_level_1), 25, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_13), GTK_WIDGET(notebook_window_treat_scrolled_new_violence), 25, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_14), GTK_WIDGET(notebook_window_treat_label_new_autotomy), 100, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_15), GTK_WIDGET(notebook_window_treat_combo_new_level_2), 25, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_16), GTK_WIDGET(notebook_window_treat_scrolled_new_autotomy), 25, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_17), GTK_WIDGET(notebook_window_treat_label_new_selfstl), 100, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_18), GTK_WIDGET(notebook_window_treat_combo_new_level_3), 25, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_19), GTK_WIDGET(notebook_window_treat_scrolled_new_selfstl), 25, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_20), GTK_WIDGET(notebook_window_treat_label_new_idioctonia), 100, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_21), GTK_WIDGET(notebook_window_treat_combo_new_level_4), 25, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_22), GTK_WIDGET(notebook_window_treat_scrolled_new_idioctonia), 25, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_23), GTK_WIDGET(notebook_window_treat_h_separator_2), 100, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_24), GTK_WIDGET(notebook_window_treat_label_history_physiology), 100, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_25), GTK_WIDGET(notebook_window_treat_scrolled_history_physiology), 100, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_26), GTK_WIDGET(notebook_window_treat_label_history_mentality), 100, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_27), GTK_WIDGET(notebook_window_treat_scrolled_history_mentality), 100, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_28), GTK_WIDGET(notebook_window_treat_label_history_hospital), 100, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_29), GTK_WIDGET(notebook_window_treat_scrolled_history_hospital), 100, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_30), GTK_WIDGET(notebook_window_treat_label_history_violence), 100, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_31), GTK_WIDGET(notebook_window_treat_scrolled_history_violence), 100, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_32), GTK_WIDGET(notebook_window_treat_label_history_autotomy), 100, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_33), GTK_WIDGET(notebook_window_treat_scrolled_history_autotomy), 100, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_34), GTK_WIDGET(notebook_window_treat_label_history_selfstl), 100, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_35), GTK_WIDGET(notebook_window_treat_scrolled_history_selfstl), 100, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_36), GTK_WIDGET(notebook_window_treat_label_history_idioctonia), 100, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_37), GTK_WIDGET(notebook_window_treat_scrolled_history_idioctonia), 100, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_38), GTK_WIDGET(notebook_window_treat_label_history_ds), 100, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_39), GTK_WIDGET(notebook_window_treat_scrolled_history_ds), 100, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_40), GTK_WIDGET(notebook_window_treat_label_history_infect), 100, 25);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_41), GTK_WIDGET(notebook_window_treat_scrolled_history_infect), 100, 0);
+    gtk_fixed_put(GTK_FIXED(notebook_window_treat_fixed_42), GTK_WIDGET(notebook_window_treat_label_void_1), 100, 25);
+    /* 开始将各个GtkFixed框架加入到GtkBox和GtkTable框架之中 */
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_1), notebook_window_treat_fixed_1, 0, 1, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_1), notebook_window_treat_fixed_2, 1, 2, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_1), notebook_window_treat_fixed_3, 2, 3, 0, 2, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_2), notebook_window_treat_fixed_4, 0, 1, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_2), notebook_window_treat_fixed_5, 1, 2, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_2), notebook_window_treat_fixed_6, 2, 3, 0, 2, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_1), notebook_window_treat_fixed_7, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_2), notebook_window_treat_fixed_8, FALSE, FALSE, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_3), notebook_window_treat_fixed_9, 0, 1, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_3), notebook_window_treat_fixed_10, 1, 2, 0, 2, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_4), notebook_window_treat_fixed_11, 0, 1, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_4), notebook_window_treat_fixed_12, 1, 2, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_4), notebook_window_treat_fixed_13, 2, 3, 0, 2, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_5), notebook_window_treat_fixed_14, 0, 1, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_5), notebook_window_treat_fixed_15, 1, 2, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_5), notebook_window_treat_fixed_16, 2, 3, 0, 2, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_6), notebook_window_treat_fixed_17, 0, 1, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_6), notebook_window_treat_fixed_18, 1, 2, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_6), notebook_window_treat_fixed_19, 2, 3, 0, 2, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_7), notebook_window_treat_fixed_20, 0, 1, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_7), notebook_window_treat_fixed_21, 1, 2, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_table_attach(GTK_TABLE(notebook_window_treat_table_7), notebook_window_treat_fixed_22, 2, 3, 0, 2, GTK_FILL, GTK_SHRINK, 0, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_3), notebook_window_treat_fixed_23, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_4), notebook_window_treat_fixed_24, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_5), notebook_window_treat_fixed_25, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_6), notebook_window_treat_fixed_26, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_7), notebook_window_treat_fixed_27, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_8), notebook_window_treat_fixed_28, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_9), notebook_window_treat_fixed_29, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_10), notebook_window_treat_fixed_30, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_11), notebook_window_treat_fixed_31, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_12), notebook_window_treat_fixed_32, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_13), notebook_window_treat_fixed_33, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_14), notebook_window_treat_fixed_34, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_15), notebook_window_treat_fixed_35, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_16), notebook_window_treat_fixed_36, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_17), notebook_window_treat_fixed_37, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_18), notebook_window_treat_fixed_38, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_19), notebook_window_treat_fixed_39, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_20), notebook_window_treat_fixed_40, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_21), notebook_window_treat_fixed_41, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_22), notebook_window_treat_fixed_42, FALSE, FALSE, 0);
+    /* 将控件、相关回调函数以及信号相关联 */
+    /* */
+    /* 将各个框架加入到notebook_window_treat_v_box之中 */
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_table_1, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_table_2, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_1, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_2, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_table_3, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_table_4, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_table_5, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_table_6, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_table_7, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_3, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_8, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_9, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_6, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_7, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_4, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_5, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_10, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_11, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_12, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_13, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_14, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_15, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_16, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_17, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_18, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_19, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_20, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_21, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_h_box_22, FALSE, FALSE, 0);
+    /* 将notebook_window_person_v_box加入到notebook_window_treat之中 */
+    gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(notebook_window_treat), notebook_window_treat_v_box);
+    /* -------------------------------------------------------------------------------------------------- */
+
+
+
     /* 将窗口放置到相应的标签页中 */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook), notebook_window_person, notebook_label_person);
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook), notebook_window_treat, notebook_label_treat);
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook), notebook_window_grade, notebook_label_grade);
-    
+
     /* 创建编辑按钮 */
     edit_button_check = gtk_check_button_new_with_label("编辑");
     edit_button_ok = gtk_button_new_with_label("保存");
@@ -498,17 +892,17 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     gtk_box_pack_start(GTK_BOX(edit_h_box), edit_button_alignment_right, TRUE, TRUE, 0);
     /* 将编辑按钮与各自对应的回调函数相连接 */
     /* */
-    
+
     /* 创建v_box框架 */
     main_window_v_box = gtk_vbox_new(FALSE, 0);
     /* 将v_box框架放置于主窗口之中 */
     gtk_container_add(GTK_CONTAINER(main_window), main_window_v_box);
-    
+
     /* 将各个控件放置于v_box之中 */
     gtk_box_pack_start(GTK_BOX(main_window_v_box), menu_bar, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(main_window_v_box), notebook, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_window_v_box), edit_h_box, FALSE, FALSE, 0);
-    
+
     gtk_widget_show_all(main_window);
     gtk_main();
     return 0;
