@@ -400,6 +400,37 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     gtk_widget_set_size_request(notebook_window_person_label_void, 100, 25);
     gtk_widget_set_size_request(notebook_window_person_h_separator_1, 625, 25);
     gtk_widget_set_size_request(notebook_window_person_h_separator_2, 625, 25);
+    /* 设置各个combo_box_text内部内容 */ /* 关于行为性质部分医院文档内并未说面，需要联系咨询 */
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_sex), "男");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_sex), "女");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_sex), "不祥");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_marriage), "未婚");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_marriage), "已婚");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_marriage), "再婚");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_marriage), "离异");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_marriage), "不祥");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_education), "文盲");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_education), "小学");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_education), "初中");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_education), "高中");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_education), "本科及本科以上");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_credentials), "身份证");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_credentials), "户籍所在地证明");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_place), "莲湖区");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_place), "碑林区");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_place), "雁塔区");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_place), "新城区");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_place), "未央区");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_place), "长安区");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_level), "0级：无符合以下1——5级中的任何行为");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_level), "1级：口头威胁、喊叫、但没有打砸行为");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_level), "2级：打砸行为，局限在家里，针对财物；不能接受劝说而停止");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_level), "3级：明显打砸行为，不分场合，针对财物或人，不能接受劝说而停止");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_level), "4级：连续的打砸行为，不分场合，针对财物或人，不能接受劝说而停止；包括自伤、自杀");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_level), "5级：持械针对的任何暴力行为，或者纵火、爆炸等行为；无论在家里还是公共场合");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_goto), "救助站接走");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_goto), "转院（包括：市二院、市按摩院、西安医学院附属医院市结核医院）");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(notebook_window_person_combo_goto), "家属接走");
     /* 关于notebook_window_person_scrolled*控件的一些设置 */
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_person_scrolled_describe), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_person_scrolled_result), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
@@ -702,6 +733,7 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     gtk_widget_set_size_request(notebook_window_treat_label_history_infect, 85, 25);
     gtk_widget_set_size_request(notebook_window_treat_scrolled_history_infect, 625, 100);
     gtk_widget_set_size_request(notebook_window_treat_label_void_1, 100, 25);
+    /* 添加notebook_window_treat_combo*控件内容 */ /* 关于严重程度方面医院文档内部并未详细说面，需要联系咨询 */
     /* 关于notebook_window_treat_scrolled*控件的一些设置 */
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_diagnose), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(notebook_window_treat_scrolled_medicine), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
