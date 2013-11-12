@@ -1,6 +1,6 @@
 #include <gtk/gtk.h>
 
-void notebook_window_treat_button_medicine_callback(GtkWidget *widget, gpointer main_window)
+void window_notebook_treat_button_medicine_callback(GtkWidget *widget, gpointer main_window)
 {
     /* 窗口控件声明 */
     GtkWidget *window;
