@@ -2,6 +2,7 @@
 
 /* 各个回调函数的声明 */
 void menu_bar_help_callback(GtkWidget *widget, gpointer main_window);
+void notebook_window_treat_button_medicine_callback(GtkWidget *widget, gpointer main_window);
 
 /* */
 
@@ -854,6 +855,7 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_21), notebook_window_treat_fixed_41, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(notebook_window_treat_h_box_22), notebook_window_treat_fixed_42, FALSE, FALSE, 0);
     /* 将控件、相关回调函数以及信号相关联 */
+    g_signal_connect(G_OBJECT(notebook_window_treat_button_medicine), "clicked", G_CALLBACK(notebook_window_treat_button_medicine_callback), (gpointer)main_window);
     /* */
     /* 将各个框架加入到notebook_window_treat_v_box之中 */
     gtk_box_pack_start(GTK_BOX(notebook_window_treat_v_box), notebook_window_treat_table_1, FALSE, FALSE, 0);
