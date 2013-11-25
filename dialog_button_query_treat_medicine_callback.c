@@ -1,5 +1,9 @@
 #include <gtk/gtk.h>
 
+/* 相关回调函数原型 */
+void dialog_button_cancel_callback(GtkWidget *widget, gpointer parents);
+/* */
+
 void dialog_button_query_treat_medicine_callback(GtkWidget *widget, gpointer parents)
 {
     /* 窗口控件声明 */
@@ -63,7 +67,7 @@ void dialog_button_query_treat_medicine_callback(GtkWidget *widget, gpointer par
               *dialog_notebook_heart_entry_1, *dialog_notebook_heart_entry_2,
               *dialog_notebook_heart_entry_3, *dialog_notebook_heart_entry_4;
     /* 底部按钮部分声明 */
-    GtkWidget *dialog_edit_button_ok, *dialog_edit_button_cancel;
+    GtkWidget *dialog_button_ok, *dialog_button_cancel;
 
     /* 创建窗口部件 */
     dialog= gtk_dialog_new();
@@ -387,21 +391,25 @@ void dialog_button_query_treat_medicine_callback(GtkWidget *widget, gpointer par
     gtk_notebook_append_page(GTK_NOTEBOOK(dialog_notebook), dialog_notebook_heart_scrolled, dialog_notebook_heart_label);
 
     /* 创建“确定”和“取消”按钮 */
-    dialog_edit_button_ok = gtk_button_new_with_label("确定");
-    dialog_edit_button_cancel = gtk_button_new_with_label("取消");
+    dialog_button_ok = gtk_button_new_with_label("确定");
+    dialog_button_cancel = gtk_button_new_with_label("取消");
     /* 设置按钮默认大小 */
-    gtk_widget_set_size_request(dialog_edit_button_ok, 75, 25);
-    gtk_widget_set_size_request(dialog_edit_button_cancel, 75, 25);
+    gtk_widget_set_size_request(dialog_button_ok, 75, 25);
+    gtk_widget_set_size_request(dialog_button_cancel, 75, 25);
 
     /* 将各个控件放入dialog之中 */
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog) -> vbox), dialog_notebook, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog) -> action_area), dialog_edit_button_ok, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog) -> action_area), dialog_edit_button_cancel, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog) -> action_area), dialog_button_ok, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog) -> action_area), dialog_button_cancel, TRUE, TRUE, 0);
+
+    /* 将相关回调函数与 dialog_button* 相关联 */
+    g_signal_connect(G_OBJECT(dialog_button_cancel), "clicked", G_CALLBACK(dialog_button_cancel_callback), (gpointer)dialog);
+    /* */
 
     /* 及时显示各个控件 */
     gtk_widget_show_all(dialog_notebook);
-    gtk_widget_show(dialog_edit_button_ok);
-    gtk_widget_show(dialog_edit_button_cancel);
+    gtk_widget_show(dialog_button_ok);
+    gtk_widget_show(dialog_button_cancel);
     /* 显示对话窗口 */
     gtk_dialog_run(GTK_DIALOG(dialog));
     gtk_widget_destroy(dialog);

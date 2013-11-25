@@ -5,6 +5,7 @@ void dialog_button_query_person_photo_callback(GtkWidget *widget, gpointer paren
 void dialog_button_query_person_diagnose_callback(GtkWidget *widget, gpointer parents);
 void dialog_button_query_treat_diagnose_callback(GtkWidget *widget, gpointer parents);
 void dialog_button_query_treat_medicine_callback(GtkWidget *widget, gpointer parents);
+void dialog_button_cancel_callback(GtkWidget *widget, gpointer parents);
 /* */
 
 void window_button_query_callback(GtkWidget *widget, gpointer parents)
@@ -848,6 +849,9 @@ void window_button_query_callback(GtkWidget *widget, gpointer parents)
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog) -> action_area), dialog_check, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog) -> action_area), dialog_button_ok, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog) -> action_area), dialog_button_cancel, TRUE, TRUE, 0);
+
+    /* 底部按钮与相关回调函数相关联 */
+    g_signal_connect(G_OBJECT(dialog_button_cancel), "clicked", G_CALLBACK(dialog_button_cancel_callback), (gpointer)dialog);
 
     /* 及时显示 */
     gtk_widget_show_all(dialog_notebook);

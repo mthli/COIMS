@@ -3,6 +3,7 @@
 /* 相关回调函数原型 */
 void dialog_button_new_diagnose_callback(GtkWidget *widget, gpointer parents);
 void dialog_button_new_photo_callback(GtkWidget *widget, gpointer parents);
+void dialog_button_cancel_callback(GtkWidget *widget, gpointer parents);
 /* */
 
 void window_button_new_callback(GtkWidget *widget, gpointer parents)
@@ -342,6 +343,7 @@ void window_button_new_callback(GtkWidget *widget, gpointer parents)
     gtk_widget_set_size_request(dialog_button_ok, 75, 25);
     gtk_widget_set_size_request(dialog_button_cancel, 75, 25);
     /* 将相关回调函数与 dialog_button* 相关联 */
+    g_signal_connect(G_OBJECT(dialog_button_cancel), "clicked", G_CALLBACK(dialog_button_cancel_callback), (gpointer)dialog);
     /* */
 
     /* 将各个框架和控件加入到 dialog_scrolled_vbox 之中 */
