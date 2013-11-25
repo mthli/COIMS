@@ -1,6 +1,6 @@
 #include <gtk/gtk.h>
 
-void window_menubar_help_callback(GtkWidget *widget, gpointer parents)
+void window_menubar_help_about_callback(GtkWidget *widget, gpointer parents)
 {
     GtkWidget *dialog_about;
 

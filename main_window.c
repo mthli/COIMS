@@ -1,7 +1,7 @@
 #include <gtk/gtk.h>
 
 /* 回调函数原型 */
-void window_menubar_help_callback(GtkWidget *widget, gpointer parents);
+void window_menubar_help_about_callback(GtkWidget *widget, gpointer parents);
 void window_button_new_callback(GtkWidget *widget, gpointer parents);
 void window_button_query_callback(GtkWidget *widget, gpointer parents);
 // void window_button_delete_callback(GtkWidget *widget, gpointer parents);
@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     GtkWidget *window_menubar;
     GtkWidget *window_menu_file, *window_menu_make, *window_menu_data, *window_menu_help;
     GtkWidget *window_menubar_file, *window_menubar_make, *window_menubar_data, *window_menubar_help;
-    GtkWidget *window_menubar_file_new, *window_menubar_file_open,
+    GtkWidget *window_menubar_file_new, *window_menubar_file_query,
               *window_menubar_file_delete, *window_menubar_file_quit,
               *window_menubar_make_status, *window_menubar_make_cost,
               *window_menubar_data_buckup, *window_menubar_data_clean,
@@ -59,13 +59,13 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     window_menu_data = gtk_menu_new();
     window_menu_help = gtk_menu_new();
     /* 创建各个菜单 */ /* 解决中文乱码，转为UTF-8编码格式 */
-    window_menubar_file = gtk_menu_item_new_with_label("病例");
+    window_menubar_file = gtk_menu_item_new_with_label("病历");
     window_menubar_make = gtk_menu_item_new_with_label("报表");
     window_menubar_data = gtk_menu_item_new_with_label("数据");
     window_menubar_help = gtk_menu_item_new_with_label("帮助");
     /* 创建各个菜单项 */
     window_menubar_file_new = gtk_menu_item_new_with_label("新建");
-    window_menubar_file_open = gtk_menu_item_new_with_label("查看");
+    window_menubar_file_query = gtk_menu_item_new_with_label("查看");
     window_menubar_file_delete = gtk_menu_item_new_with_label("删除");
     window_menubar_file_quit = gtk_menu_item_new_with_label("退出");
     window_menubar_make_status = gtk_menu_item_new_with_label("生成《危重病人救治情况月报表》");
@@ -80,7 +80,7 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     window_menubar_separator_4 = gtk_separator_menu_item_new();
     /* 将各个菜单项加入到各自所属的菜单中 */
     gtk_menu_shell_append(GTK_MENU_SHELL(window_menu_file), window_menubar_file_new);
-    gtk_menu_shell_append(GTK_MENU_SHELL(window_menu_file), window_menubar_file_open);
+    gtk_menu_shell_append(GTK_MENU_SHELL(window_menu_file), window_menubar_file_query);
     gtk_menu_shell_append(GTK_MENU_SHELL(window_menu_file), window_menubar_file_delete);
     gtk_menu_shell_append(GTK_MENU_SHELL(window_menu_file), window_menubar_separator_1);
     gtk_menu_shell_append(GTK_MENU_SHELL(window_menu_file), window_menubar_file_quit);
@@ -104,8 +104,10 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     gtk_menu_shell_append(GTK_MENU_SHELL(window_menubar), window_menubar_data);
     gtk_menu_shell_append(GTK_MENU_SHELL(window_menubar), window_menubar_help);
     /* 将菜单项与各自的信号相关联 */
+    g_signal_connect(G_OBJECT(window_menubar_file_new), "activate", G_CALLBACK(window_button_new_callback), NULL);
+    g_signal_connect(G_OBJECT(window_menubar_file_query), "activate", G_CALLBACK(window_button_query_callback), NULL);
     g_signal_connect(G_OBJECT(window_menubar_file_quit), "activate", G_CALLBACK(gtk_main_quit), NULL);
-    g_signal_connect(G_OBJECT(window_menubar_help_about), "activate", G_CALLBACK(window_menubar_help_callback), (gpointer)window);
+    g_signal_connect(G_OBJECT(window_menubar_help_about), "activate", G_CALLBACK(window_menubar_help_about_callback), (gpointer)window);
     /* */
 
     /* 创建 window_button* */
