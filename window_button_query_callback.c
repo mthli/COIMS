@@ -1,6 +1,7 @@
 #include <gtk/gtk.h>
 
 /* 相关回调函数原型 */ /* 修改 gpointer 部分 */
+void dialog_button_query_person_photo_callback(GtkWidget *widget, gpointer parents);
 void dialog_button_query_person_diagnose_callback(GtkWidget *widget, gpointer parents);
 void dialog_button_query_treat_diagnose_callback(GtkWidget *widget, gpointer parents);
 void dialog_button_query_treat_medicine_callback(GtkWidget *widget, gpointer parents);
@@ -129,6 +130,7 @@ void window_button_query_callback(GtkWidget *widget, gpointer parents)
     /* dialog_notebook_grade内部控件声明 */
     /* ---------------------------------------------------------------------------------------------------------------- */
     /* 底部按钮声明 */
+    GtkWidget *dialog_check;
     GtkWidget *dialog_button_ok, *dialog_button_cancel;
 
     /* 创建主窗口 */
@@ -447,6 +449,7 @@ void window_button_query_callback(GtkWidget *widget, gpointer parents)
     gtk_box_pack_start(GTK_BOX(dialog_notebook_person_hbox_12), dialog_notebook_person_fixed_44, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(dialog_notebook_person_hbox_13), dialog_notebook_person_fixed_45, FALSE, FALSE, 0);
     /* 将控件、相关回调函数以及信号相关联 */
+    g_signal_connect(G_OBJECT(dialog_notebook_person_button_photo), "clicked", G_CALLBACK(dialog_button_query_person_photo_callback), (gpointer)dialog);
     g_signal_connect(G_OBJECT(dialog_notebook_person_button_diagnose), "clicked", G_CALLBACK(dialog_button_query_person_diagnose_callback), (gpointer)dialog);
     /* */
     /* 将各个框架加入到dialog_notebook_person_vbox之中 */
@@ -832,19 +835,23 @@ void window_button_query_callback(GtkWidget *widget, gpointer parents)
     gtk_notebook_append_page(GTK_NOTEBOOK(dialog_notebook), dialog_notebook_grade_scrolled, dialog_notebook_grade_label);
 
     /* 创建底部按钮 */
+    dialog_check = gtk_check_button_new_with_label("编辑");
     dialog_button_ok = gtk_button_new_with_label("确定");
     dialog_button_cancel = gtk_button_new_with_label("取消");
     /* 设置按钮默认大小 */
+    gtk_widget_set_size_request(dialog_check, 75, 25);
     gtk_widget_set_size_request(dialog_button_ok, 75, 25);
     gtk_widget_set_size_request(dialog_button_cancel, 75, 25);
 
     /* 把按钮和 notebook 控件放入对话框 */
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog) -> vbox), dialog_notebook, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog) -> action_area), dialog_check, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog) -> action_area), dialog_button_ok, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog) -> action_area), dialog_button_cancel, TRUE, TRUE, 0);
 
     /* 及时显示 */
     gtk_widget_show_all(dialog_notebook);
+    gtk_widget_show(dialog_check);
     gtk_widget_show(dialog_button_ok);
     gtk_widget_show(dialog_button_cancel);
     /* 运行对话框 */
