@@ -450,7 +450,7 @@ void window_button_query_callback(GtkWidget *widget, gpointer parents)
     gtk_box_pack_start(GTK_BOX(dialog_notebook_person_hbox_12), dialog_notebook_person_fixed_44, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(dialog_notebook_person_hbox_13), dialog_notebook_person_fixed_45, FALSE, FALSE, 0);
     /* 将控件、相关回调函数以及信号相关联 */
-    g_signal_connect(G_OBJECT(dialog_notebook_person_button_photo), "clicked", G_CALLBACK(dialog_button_query_person_photo_callback), (gpointer)dialog);
+    g_signal_connect(G_OBJECT(dialog_notebook_person_button_photo), "clicked", G_CALLBACK(dialog_button_query_person_photo_callback), (gpointer)dialog_notebook_person_button_photo);
     g_signal_connect(G_OBJECT(dialog_notebook_person_button_diagnose), "clicked", G_CALLBACK(dialog_button_query_person_diagnose_callback), (gpointer)dialog);
     /* */
     /* 将各个框架加入到dialog_notebook_person_vbox之中 */

@@ -332,7 +332,7 @@ void window_button_new_callback(GtkWidget *widget, gpointer parents)
     gtk_box_pack_start(GTK_BOX(dialog_scrolled_hbox_10), dialog_scrolled_fixed_38, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(dialog_scrolled_hbox_11), dialog_scrolled_fixed_39, FALSE, FALSE, 0);
     /* 将控件、相关回调函数以及信号相关联 */
-    g_signal_connect(G_OBJECT(dialog_scrolled_button_photo), "clicked", G_CALLBACK(dialog_button_new_photo_callback), (gpointer)dialog);
+    g_signal_connect(G_OBJECT(dialog_scrolled_button_photo), "clicked", G_CALLBACK(dialog_button_new_photo_callback), (gpointer)dialog_scrolled_button_photo);
     g_signal_connect(G_OBJECT(dialog_scrolled_button_diagnose), "clicked", G_CALLBACK(dialog_button_new_diagnose_callback), (gpointer)dialog);
     /* */
 
