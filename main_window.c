@@ -1,4 +1,4 @@
-#include <gtk/gtk.h>
+#include "fwd.h"
 
 /* 回调函数原型 */
 void window_menubar_help_about_callback(GtkWidget *widget, gpointer parents);
