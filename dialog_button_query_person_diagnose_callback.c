@@ -13,12 +13,13 @@ void dialog_button_query_person_diagnose_callback(GtkWidget *widget, gpointer pa
               *dialog_fixed_4, *dialog_fixed_5, *dialog_fixed_6;
     GtkWidget *dialog_check_1, *dialog_check_2, *dialog_check_3,
               *dialog_check_4, *dialog_check_5, *dialog_check_6;
-    GtkWidget *dialog_button_ok, *dialog_button_cancel;
 
-    /* 创建窗口 */
-    dialog= gtk_dialog_new();
-    /* 设置窗口名称 */
-    gtk_window_set_title(GTK_WINDOW(dialog), "诊断选项，可多选");
+    /* 创建窗口 */ /* 注意是否需要用 NULL */
+    dialog= gtk_dialog_new_with_buttons("诊断选项，可多选",
+                                        GTK_WINDOW(parents), GTK_DIALOG_MODAL,
+                                        "确定",  GTK_RESPONSE_ACCEPT,
+                                        "取消", GTK_RESPONSE_REJECT,
+                                        NULL);
     /* 设置窗口默认显示位置为中心显示 */
     gtk_window_set_position(GTK_WINDOW(dialog), GTK_WIN_POS_CENTER);
     /* 设置窗口默认大小，并禁止窗口最大化 */
@@ -63,28 +64,14 @@ void dialog_button_query_person_diagnose_callback(GtkWidget *widget, gpointer pa
     gtk_table_attach(GTK_TABLE(dialog_table), dialog_fixed_5, 0, 1, 2, 3, GTK_FILL, GTK_SHRINK, 0, 0);
     gtk_table_attach(GTK_TABLE(dialog_table), dialog_fixed_6, 1, 2, 2, 3, GTK_FILL, GTK_SHRINK, 0, 0);
 
-    /* 创建“确定”和“取消”按钮 */
-    dialog_button_ok = gtk_button_new_with_label("确定");
-    dialog_button_cancel = gtk_button_new_with_label("取消");
-    /* 设置按钮默认大小 */
-    gtk_widget_set_size_request(dialog_button_ok, 75, 25);
-    gtk_widget_set_size_request(dialog_button_cancel, 75, 25);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog) -> vbox), dialog_table, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog) -> action_area), dialog_button_ok, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog) -> action_area), dialog_button_cancel, TRUE, TRUE, 0);
-
-    /* 将相关回调函数与 dialog_button* 相关联 */
-    g_signal_connect(G_OBJECT(dialog_button_cancel), "clicked", G_CALLBACK(dialog_button_cancel_callback), (gpointer)dialog);
-    /* */
-
-
-    /* 记住使用 dialog 控件的时候要及时显示所有控件 */
     gtk_widget_show_all(dialog_table);
-    gtk_widget_show(dialog_button_ok);
-    gtk_widget_show(dialog_button_cancel);
 
-    /* 显示对话窗口 */
-    gtk_dialog_run(GTK_DIALOG(dialog));
-    gtk_widget_destroy(dialog);
+    if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
+        /* 注意添加相应内容 */
+        /* */
+        gtk_widget_destroy(dialog);
+    } else
+        gtk_widget_destroy(dialog);
 }
 
