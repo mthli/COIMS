@@ -4,7 +4,6 @@
 void window_menubar_help_about_callback(GtkWidget *widget, gpointer parents);
 void window_button_new_callback(GtkWidget *widget, gpointer parents);
 void window_button_query_callback(GtkWidget *widget, gpointer parents);
-// void window_button_delete_callback(GtkWidget *widget, gpointer parents);
 
 /* */
 
@@ -27,9 +26,9 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
               *window_menubar_separator_1, *window_menubar_separator_2,
               *window_menubar_separator_3, *window_menubar_separator_4;
     /* 选项按钮控件声明 */
-    GtkWidget *window_button_new, *window_button_query, *window_button_delete;
+    GtkWidget *window_button_new, *window_button_query, *window_button_quit;
     /* 选项按钮的 Fixed 框架声明 */
-    GtkWidget *window_fixed_new, *window_fixed_query, *window_fixed_delete;
+    GtkWidget *window_fixed_new, *window_fixed_query, *window_fixed_quit;
 
     /* 每个 GTK+ 程序必不可少的部分 */
     gtk_init(&argc, &argv);
@@ -113,27 +112,27 @@ int main(int argc, char *argv[]) /* 注意是char *argv[] */
     /* 创建 window_button* */
     window_button_new = gtk_button_new_with_label("新建");
     window_button_query = gtk_button_new_with_label("查看");
-    window_button_delete = gtk_button_new_with_label("删除");
+    window_button_quit = gtk_button_new_with_label("退出");
     /* 创建 window_button* 的 Fixed 框架 */
     window_fixed_new = gtk_fixed_new();
     window_fixed_query = gtk_fixed_new();
-    window_fixed_delete = gtk_fixed_new();
+    window_fixed_quit = gtk_fixed_new();
     /* 设置 window_button* 的默认大小 */
     gtk_widget_set_size_request(window_button_new, 100, 100);
     gtk_widget_set_size_request(window_button_query, 100, 100);
-    gtk_widget_set_size_request(window_button_delete, 100, 100);
+    gtk_widget_set_size_request(window_button_quit, 100, 100);
     /* 将 window_button* 放入 Fixed 框架 */
     gtk_fixed_put(GTK_FIXED(window_fixed_new), GTK_WIDGET(window_button_new), 50, 75);
     gtk_fixed_put(GTK_FIXED(window_fixed_query), GTK_WIDGET(window_button_query), 50, 75);
-    gtk_fixed_put(GTK_FIXED(window_fixed_delete), GTK_WIDGET(window_button_delete), 50, 75);
+    gtk_fixed_put(GTK_FIXED(window_fixed_quit), GTK_WIDGET(window_button_quit), 50, 75);
     /* 把 Fixed 框架放入 window_hbox 之中 */
     gtk_box_pack_start(GTK_BOX(window_hbox), window_fixed_new, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(window_hbox), window_fixed_query, FALSE, FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(window_hbox), window_fixed_delete, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(window_hbox), window_fixed_quit, FALSE, FALSE, 0);
     /* 将回调函数与各个 wiindow_button* 相关联 */
     g_signal_connect(G_OBJECT(window_button_new), "clicked", G_CALLBACK(window_button_new_callback), (gpointer)window);
     g_signal_connect(G_OBJECT(window_button_query), "clicked", G_CALLBACK(window_button_query_callback), (gpointer)window);
-    // g_signal_connect(G_OBJECT(window_button_delete), "clicked", G_CALLBACK(window_menubar_help_callback), (gpointer)window);
+    g_signal_connect(G_OBJECT(window_button_quit), "clicked", G_CALLBACK(gtk_main_quit), NULL);
     /* */
 
     /* 将各个控件放入 window_vbox 之中 */
