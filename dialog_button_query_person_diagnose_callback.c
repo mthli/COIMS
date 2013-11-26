@@ -1,4 +1,4 @@
-#include <gtk/gtk.h>
+#include "fwd.h"
 
 /* 相关回调函数原型 */
 void dialog_button_cancel_callback(GtkWidget *widget, gpointer parents);
@@ -13,6 +13,9 @@ void dialog_button_query_person_diagnose_callback(GtkWidget *widget, gpointer pa
               *dialog_fixed_4, *dialog_fixed_5, *dialog_fixed_6;
     GtkWidget *dialog_check_1, *dialog_check_2, *dialog_check_3,
               *dialog_check_4, *dialog_check_5, *dialog_check_6;
+    /* 相关文件功能声明 */
+     FILE *fp;
+     char diagnose[100] ={0};
 
     /* 创建窗口 */ /* 注意是否需要用 NULL */
     dialog= gtk_dialog_new_with_buttons("诊断选项，可多选",
@@ -68,8 +71,23 @@ void dialog_button_query_person_diagnose_callback(GtkWidget *widget, gpointer pa
     gtk_widget_show_all(dialog_table);
 
     if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
-        /* 注意添加相应内容 */
-        /* */
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_check_1)) == TRUE)
+            strcat(diagnose, "精神分裂症 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_check_2)) == TRUE)
+            strcat(diagnose, "分裂情感性障碍 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_check_3)) == TRUE)
+            strcat(diagnose, "偏执性精神病 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_check_4)) == TRUE)
+            strcat(diagnose, "双相情感障碍 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_check_5)) == TRUE)
+            strcat(diagnose, "癫痫所致精神障碍 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_check_6)) == TRUE)
+            strcat(diagnose, "精神发育迟滞 ");
+        if (strlen(diagnose) != 0) {
+            fp = fopen("temp_query_person_diagnose", "w+");
+            fputs(diagnose, fp);
+            fclose(fp);
+        }
         gtk_widget_destroy(dialog);
     } else
         gtk_widget_destroy(dialog);

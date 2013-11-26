@@ -1,4 +1,4 @@
-#include <gtk/gtk.h>
+#include "fwd.h"
 
 /* 相关回调函数原型 */ /* 修改 gpointer 部分 */
 void dialog_button_query_person_photo_callback(GtkWidget *widget, gpointer parents);

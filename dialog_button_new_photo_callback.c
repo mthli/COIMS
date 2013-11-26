@@ -1,5 +1,4 @@
-#include <gtk/gtk.h>
-#include <stdio.h>
+#include "fwd.h"
 
 /* 相关回调函数原型 */
 /* */
@@ -43,9 +42,11 @@ void dialog_button_new_photo_callback(GtkWidget *widget, gpointer parents)
             gtk_container_add(GTK_CONTAINER(parents), new_photo);
             gtk_widget_show(new_photo);
             /* 将原始照片的绝对路径写入临时文本，以后有用 */
-            fp = fopen("temp_new_photo", "w+");
-            fputs(choose_photo_path, fp);
-            fclose(fp);
+            if (strlen(choose_photo_path) != 0) {
+                fp = fopen("temp_new_photo", "w+");
+                fputs(choose_photo_path, fp);
+                fclose(fp);
+            }
             gtk_widget_destroy(dialog);
         } else {
             /* 移除之前选中的照片 */
@@ -69,9 +70,11 @@ void dialog_button_new_photo_callback(GtkWidget *widget, gpointer parents)
             gtk_container_add(GTK_CONTAINER(parents), new_photo);
             gtk_widget_show(new_photo);
             /* 将原始照片的绝对路径写入临时文本，以后有用 */
-            fp = fopen("temp_new_photo", "w+");
-            fputs(choose_photo_path, fp);
-            fclose(fp);
+            if (strlen(choose_photo_path) != 0) {
+                fp = fopen("temp_new_photo", "w+");
+                fputs(choose_photo_path, fp);
+                fclose(fp);
+            }
             gtk_widget_destroy(dialog);
         }
     }

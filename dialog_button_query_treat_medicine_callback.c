@@ -1,4 +1,4 @@
-#include <gtk/gtk.h>
+#include "fwd.h"
 
 /* 相关回调函数原型 */
 void dialog_button_cancel_callback(GtkWidget *widget, gpointer parents);
@@ -66,6 +66,12 @@ void dialog_button_query_treat_medicine_callback(GtkWidget *widget, gpointer par
               *dialog_notebook_anxiety_entry_3, *dialog_notebook_anxiety_entry_4,
               *dialog_notebook_heart_entry_1, *dialog_notebook_heart_entry_2,
               *dialog_notebook_heart_entry_3, *dialog_notebook_heart_entry_4;
+    /* 相关文件功能声明 */
+    FILE *fp;
+    char medicine_psychosis[100] = {0};
+    char medicine_depression[100] = {0};
+    char medicine_anxiety[100] = {0};
+    char medicine_heart[100] = {0};
 
     /* 创建窗口 */ /* 注意是否需要用 NULL */
     dialog= gtk_dialog_new_with_buttons("药物选项，可多选",
@@ -394,7 +400,88 @@ void dialog_button_query_treat_medicine_callback(GtkWidget *widget, gpointer par
     gtk_widget_show_all(dialog_notebook);
 
     if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
-        /* 注意添加相关内容 */
+        /* 虽然可以直接以 "w+" 写入，但是我们仍然不希望得到一个空的文件，所以写入的时候需要判断一下：
+         * 如果最终的得到的字符串为空，则不写入；
+         * 否则写入。*/
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON( dialog_notebook_psychosis_check_1)) == TRUE)
+            strcat(medicine_psychosis, "氯丙嗪片 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_psychosis_check_2)) == TRUE)
+            strcat(medicine_psychosis, "氯丙嗪注射液 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_psychosis_check_3)) == TRUE)
+            strcat(medicine_psychosis, "奋乃静片 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_psychosis_check_4)) == TRUE)
+            strcat(medicine_psychosis, "氟哌啶醇片 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_psychosis_check_5)) == TRUE)
+            strcat(medicine_psychosis, "氟哌啶醇注射液 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_psychosis_check_6)) == TRUE)
+            strcat(medicine_psychosis, "奥氮平片 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_psychosis_check_7)) == TRUE)
+            strcat(medicine_psychosis, "喹硫平片 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_psychosis_check_8)) == TRUE)
+            strcat(medicine_psychosis, "阿立哌唑口腔崩解片 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_psychosis_check_9)) == TRUE)
+            strcat(medicine_psychosis, "利培酮片 ");
+        /* 在此处写入一个文件 */
+        if (strlen(medicine_psychosis) != 0) {
+            fp = fopen("temp_query_treat_medicine_psychosis", "w+");
+            fputs(medicine_psychosis, fp);
+            fclose(fp);
+        }
+        /* */
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_depression_check_1)) == TRUE)
+            strcat(medicine_depression, "多虑平片 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_depression_check_2)) == TRUE)
+            strcat(medicine_depression, "氯丙咪嗪片 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_depression_check_3)) == TRUE)
+            strcat(medicine_depression, "氟西丁片 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_depression_check_4)) == TRUE)
+            strcat(medicine_depression, "氟伏沙明片 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_depression_check_5)) == TRUE)
+            strcat(medicine_depression, "帕罗西丁片 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_depression_check_6)) == TRUE)
+            strcat(medicine_depression, "舍曲林片 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_depression_check_7)) == TRUE)
+            strcat(medicine_depression, "曲唑酮片 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_depression_check_8)) == TRUE)
+            strcat(medicine_depression, "米氯平 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_depression_check_9)) == TRUE)
+            strcat(medicine_depression, "文拉法星片 ");
+        /* 在此处写入一个文件 */
+        if (strlen(medicine_depression) != 0) {
+            fp = fopen("temp_query_treat_medicine_depression", "w+");
+            fputs(medicine_depression, fp);
+            fclose(fp);
+        }
+        /* */
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_anxiety_check_1)) == TRUE)
+            strcat(medicine_anxiety, "阿普唑仑片 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_anxiety_check_2)) == TRUE)
+            strcat(medicine_anxiety, "劳拉西泮片 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_anxiety_check_3)) == TRUE)
+            strcat(medicine_anxiety, "艾司唑仑片 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_anxiety_check_4)) == TRUE)
+            strcat(medicine_anxiety, "佐匹克隆片 ");
+        /* 在此处写入一个文件 */
+        if (strlen(medicine_anxiety) != 0) {
+            fp = fopen("temp_query_treat_medicine_anxiety", "w+");
+            fputs(medicine_anxiety, fp);
+            fclose(fp);
+        }
+        /* */
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_heart_check_1)) == TRUE)
+            strcat(medicine_heart, "丙戊酸盐片 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_heart_check_2)) == TRUE)
+            strcat(medicine_heart, "丙戊酸盐注射液 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_heart_check_3)) == TRUE)
+            strcat(medicine_heart, "卡马西平片 ");
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_notebook_heart_check_4)) == TRUE)
+            strcat(medicine_heart, "碳酸锂片 ");
+        /* 在此处写入一个文件 */
+        if (strlen(medicine_heart) != 0) {
+            fp = fopen("temp_query_treat_medicine_heart", "w+");
+            fputs(medicine_heart, fp);
+            fclose(fp);
+        }
         /* */
         gtk_widget_destroy(dialog);
     } else

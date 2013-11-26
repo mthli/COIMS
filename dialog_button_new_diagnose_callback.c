@@ -1,5 +1,4 @@
-#include <gtk/gtk.h>
-#include <string.h>
+#include "fwd.h"
 
 /* 相关回调函数原型 */
 void dialog_button_cancel_callback(GtkWidget *widget, gpointer parents);
@@ -83,9 +82,11 @@ void dialog_button_new_diagnose_callback(GtkWidget *widget, gpointer parents)
             strcat(diagnose, "癫痫所致精神障碍 ");
         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dialog_check_6)) == TRUE)
             strcat(diagnose, "精神发育迟滞 ");
-        fp = fopen("temp_new_diagnose", "w+");
-        fputs(diagnose, fp);
-        fclose(fp);
+        if (strlen(diagnose) != 0) {
+            fp = fopen("temp_new_diagnose", "w+");
+            fputs(diagnose, fp);
+            fclose(fp);
+        }
         gtk_widget_destroy(dialog);
     } else
         gtk_widget_destroy(dialog);

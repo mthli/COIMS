@@ -1,4 +1,4 @@
-#include <gtk/gtk.h>
+#include "fwd.h"
 
 /* 相关回调函数原型 */
 void dialog_button_new_diagnose_callback(GtkWidget *widget, gpointer parents);
