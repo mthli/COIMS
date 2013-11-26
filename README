@@ -14,11 +14,11 @@ dialog_button_query_person_photo_callback：“查看”界面的“个人信息
 dialog_button_query_person_diagnose_callback.c：“查看”界面的“个人信息”标签页的“诊断结果”选项
 dialog_button_query_treat_diagnose_callback.c：“查看”界面的“医疗信息”标签页的“疾病诊断”选项
 dialog_button_query_treat_medicine_callback.c：“查看”界面的“医疗信息”标签页的“药物治疗”选项
-dialog_button_cancel_callback.c：所有“取消”按钮对应函数
 
 开发日志：
 2013年10月25日：完成标签页notebook_window_person部分的基本创建
 2013年11月12日：基本完成目前可完成的界面，剩下的界面需要等待编写数据时完成
 2013年11月24日：修正对话框逻辑
 2013年11月25日：完善界面文件
+2013年11月26日：开始涉足数据操作，当然目前采用文本保存，因为暂时还不会数据库
 
