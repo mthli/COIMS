@@ -1,10 +1,12 @@
-/* 新建“在院病人”数据表；
+/* 创建“病人历史”数据表，
  * 全部规定为TEXT数据类型，方便操作；
- * 暂时不做指纹识别和人脸识别了，做不了，
- * 所以不为指纹识别预留接口了
+ * 不制作人脸识别模块和指纹识别模块，这个做不了，
+ * 所以这里也没有为这两个模块提供接口，
+ * 所以以后可能需要代码重构，
+ * 不过暂时还是决定这样做
  */
 CREATE TABLE IF NOT EXISTS
-tb_hospital(
+tb_history(
     /* 基本资料部分 */
     id TEXT PRIMARY KEY,
     photo_path TEXT,
@@ -44,11 +46,36 @@ tb_hospital(
     infect TEXT
 );
 
-/* 新建“在院病人”视图，方便搜索和显示 */
-CREATE VIEW ve_hospital AS
-SELECT 
-id, 
-num, 
-name
-FROM tb_hospital;
+/* 新建“基本信息”视图 */
+CREATE VIEW ve_person AS
+SELECT
+id,
+photo_path,
+name,
+sex,
+birthday,
+age,
+census
+FROM tb_history;
 
+/* 新建“住院历史”试图 */
+CREATE VIEW ve_history AS
+SELECT
+id,
+into_hospital,
+out_hospital,
+inps,
+outps,
+panss,
+do_level,
+symptom,
+status,
+psy,
+dep,
+anxiety,
+heart,
+addicted,
+drug,
+body,
+infect
+FROM tb_history;
