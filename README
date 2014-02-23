@@ -1,1 +1,24 @@
-代码重构。
+程序说明：
+    COIMS是应西安某救助站需求，义务为其开发的简易流浪者病例软件，基于GTK+2.24版本、SQLite3并采用C语言进行开发。不以成败论英雄。
+    目前软件仍在开发中。
+
+源代码说明：
+coims.h             头文件
+birthday_choose.c   选择生日
+cancel.c            取消保存
+happened_choose.c   选择事发时间
+help_about.c        显示关于菜单
+hospital.sql        创建SQLite相应的数据库
+into_choose.c       选择入院时间
+main_window.c       主界面文件
+Makefile            Makefile
+new_person.c        新建入院病人
+out_choose.c        选择出院时间
+panss.c             计算PANSS减分率
+photo_choose.c      选择照片
+COIMS               Linux下编译的可执行程序
+README              README
+
+补充说明：
+1. 没办法制作指纹识别模块和人脸识别模块，所以这部分（暂时/永久）不做，并且数据库中也没有为这部分预留接口，所以可能需要重构代码
+2. 最终目标是建立联网，但目前还是暂时制作本地软件先，需要学习Socket编程
