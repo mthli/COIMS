@@ -209,8 +209,10 @@ int main(int argc, char **argv)
      */
     temp_vbox = gtk_vbox_new(FALSE, 0);
     temp_hbox = gtk_hbox_new(FALSE, 0);
+    /* 指纹识别模块和人脸识别模块暂时不做了，做不了
+     * 
     temp_button = gtk_button_new_with_label("人脸识别");
-    gtk_widget_set_size_request(temp_button, 100, 25); /* 回调函数 */
+    gtk_widget_set_size_request(temp_button, 100, 25);
     gtk_box_pack_start(
             GTK_BOX(temp_hbox),
             temp_button,
@@ -219,7 +221,7 @@ int main(int argc, char **argv)
             0
             );
     temp_button = gtk_button_new_with_label("指纹识别");
-    gtk_widget_set_size_request(temp_button, 100, 25); /* 回调函数 */
+    gtk_widget_set_size_request(temp_button, 100, 25);
     gtk_box_pack_start(
             GTK_BOX(temp_hbox),
             temp_button,
@@ -243,8 +245,9 @@ int main(int argc, char **argv)
             FALSE,
             0
             );
+    */
     temp_hbox = gtk_hbox_new(FALSE, 0);
-    temp_entry = gtk_entry_new(); /* 好好设置一下 */
+    temp_entry = gtk_entry_new();
     gtk_widget_set_size_request(temp_entry, 150, 25);
     gtk_box_pack_start(
             GTK_BOX(temp_hbox),
