@@ -8,13 +8,15 @@ birthday_choose.c   选择生日
 cancel.c            取消保存
 happened_choose.c   选择事发时间
 help_about.c        显示关于菜单
-hospital.sql        创建SQLite相应的数据库
+history.sql         创建“病人历史”数据库
+hospital.sql        创建“在院病人”数据库
 into_choose.c       选择入院时间
 main_window.c       主界面文件
 Makefile            Makefile
 new_person.c        新建入院病人
 out_choose.c        选择出院时间
 panss.c             计算PANSS减分率
+people.sql          创建“人物”数据库
 photo_choose.c      选择照片
 COIMS               Linux下编译的可执行程序
 README              README
