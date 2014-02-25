@@ -11,7 +11,9 @@
     birthday_choose.c       选择生日
     cancel.c                取消保存
     check_sure.c            确定按钮对应的各种事件处理
-    COIMS                   Linux Gnome桌面环境下编译的可执行文件，若要运行在Windows环境下，需要配置相应环境和重新编译
+    COIMS                   Linux Gnome桌面环境下编译的可执行文件，
+                            若要运行在Windows环境下，
+                            需要配置相应环境和重新编译
     get_row_and_column.c    获取在院病人列表中被选中的选项
     happened_choose.c       选择事发时间
     help_about.c            显示关于菜单
