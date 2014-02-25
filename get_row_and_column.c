@@ -4,4 +4,6 @@ void get_row_and_column(GtkCList *clist, gint row, gint column, GdkEvent *event,
 {
     (*parents).get_row = row;
     (*parents).get_column = column;
+
+    printf("row = %d, column = %d.\n", (*parents).get_row, (*parents).get_column);
 }
