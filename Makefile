@@ -12,7 +12,8 @@ COIMS: main_window.o \
 	get_row_and_column.o \
 	search_hsp.o \
 	insert_hsp.o \
-	update_hsp.o
+	update_hsp.o \
+	hsp_list.o
 	gcc -o COIMS \
 		main_window.o \
 		help_about.o \
@@ -29,6 +30,7 @@ COIMS: main_window.o \
 		search_hsp.o \
 		insert_hsp.o \
 		update_hsp.o \
+		hsp_list.o \
 		`pkg-config --cflags --libs gtk+-2.0` -l sqlite3
 
 main_window.o: main_window.c coims.h
@@ -76,6 +78,8 @@ insert_hsp.o: insert_hsp.c coims.h
 update_hsp.o: update_hsp.c coims.h
 	gcc -c update_hsp.c `pkg-config --cflags --libs gtk+-2.0` -l sqlite3
 
+hsp_list.o: hsp_list.c coims.h
+	gcc -c hsp_list.c `pkg-config --cflags --libs gtk+-2.0` -l sqlite3
 
 clean:
 	rm main_window.o \
@@ -92,4 +96,5 @@ clean:
 		get_row_and_column.o \
 		search_hsp.o \
 		insert_hsp.o \
-		update_hsp.o
+		update_hsp.o \
+		hsp_list.o
