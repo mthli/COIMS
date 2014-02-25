@@ -14,6 +14,7 @@ void into_choose(GtkWidget *widget, Item *parents);
 void out_choose(GtkWidget *widget, Item *parents);
 void panss(GtkWidget *widght, Item *parents);
 void check_sure(GtkWidget *widget, Item *parents);
+void hsp_list(Item *parents);
 
 int main(int argc, char **argv)
 {
@@ -304,6 +305,7 @@ int main(int argc, char **argv)
      * 注意一下文本的长短和对齐问题
      */
     (*item).hospital_list = gtk_clist_new(2);
+    hsp_list(item);
     /* 这个回调函数不知道可不可以用 */
     (*item).get_row = -1;
     (*item).get_column = -1;

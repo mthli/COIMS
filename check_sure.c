@@ -3,6 +3,7 @@
 int search_hsp(Pchar *p);
 int insert_hsp(Pchar *p);
 int update_hsp(Pchar *p);
+void hsp_list(Item *parents);
 
 void check_sure(GtkWidget *widget, Item *parents)
 {
@@ -355,6 +356,7 @@ void check_sure(GtkWidget *widget, Item *parents)
             if ((*parents).get_row == -1 && rc_search == 0) {
                 rc_sqlite = insert_hsp(p);
                 if (rc_sqlite == SQLITE_OK) {
+                    hsp_list(parents); //
                     message = gtk_message_dialog_new(
                             NULL,
                             GTK_DIALOG_MODAL,
@@ -411,6 +413,7 @@ void check_sure(GtkWidget *widget, Item *parents)
                 /* 开始更新数据 */
                 rc_update = update_hsp(p);
                 if (rc_update == SQLITE_OK) {
+                    hsp_list(parents); //
                     message = gtk_message_dialog_new(
                             NULL,
                             GTK_DIALOG_MODAL,
