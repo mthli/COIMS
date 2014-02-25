@@ -19,6 +19,7 @@
     help_about.c            显示关于菜单
     hospital.sql            创建“在院病人”数据库
     hospital.db             SQLite3创建的”在院病人“数据库
+    hsp_list.c              ”在院病人“列表的刷新
     insert_hsp.c            插入“在院病人”数据表
     into_choose.c           选择入院时间
     main_window.c           主界面文件
